@@ -180,7 +180,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 97.9
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46d3f19165a023a489fa3d43cc38f8d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MouseLook
-  mouseSensitivity: 100
+  mouseSensitivity: 20
   playerBody: {fileID: 1367035449}
 --- !u!1 &382740677
 GameObject:
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 382740680}
   - component: {fileID: 382740679}
   - component: {fileID: 382740678}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Climbing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -602,7 +602,7 @@ GameObject:
   - component: {fileID: 1243127760}
   - component: {fileID: 1243127759}
   - component: {fileID: 1243127758}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Vaulting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -716,6 +716,8 @@ GameObject:
   - component: {fileID: 1367035446}
   - component: {fileID: 1367035450}
   - component: {fileID: 1367035451}
+  - component: {fileID: 1367035452}
+  - component: {fileID: 1367035453}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -839,8 +841,10 @@ MonoBehaviour:
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
   isGrounded: 0
+  isClimbing: 0
+  isWallRunning: 0
 --- !u!143 &1367035451
 CharacterController:
   m_ObjectHideFlags: 0
@@ -866,6 +870,50 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1367035452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367035443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7b562b2bc98204b855c0e90d3fcf1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WallClimbing
+  climbSpeed: 5
+  maxClimbTime: 2
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 64
+  wallDetectionDistance: 0.7
+  maxAngleFromWall: 30
+  topCheckHeight: 1
+  vaultSpeed: 6
+  vaultDuration: 0.4
+--- !u!114 &1367035453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367035443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f504ef85b60d2674a95be06f45738922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WallRunning
+  wallRunSpeed: 8
+  wallStickForce: 4
+  wallJumpUpForce: 5
+  wallJumpSideForce: 8
+  wallJumpForwardForce: 4
+  exitWallCooldown: 0.2
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 128
+  wallCheckDistance: 0.8
 --- !u!1 &1420172595
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,7 +1038,7 @@ GameObject:
   - component: {fileID: 1775199165}
   - component: {fileID: 1775199164}
   - component: {fileID: 1775199163}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ObstacaleGroundedTall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1102,7 +1150,7 @@ GameObject:
   - component: {fileID: 1784267741}
   - component: {fileID: 1784267740}
   - component: {fileID: 1784267739}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wallrun2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1196,7 +1244,7 @@ Transform:
   m_GameObject: {fileID: 1784267738}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.9, y: 3.45, z: -56}
+  m_LocalPosition: {x: 2.9, y: 3.45, z: -60.6}
   m_LocalScale: {x: 20, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1214,7 +1262,7 @@ GameObject:
   - component: {fileID: 1828255132}
   - component: {fileID: 1828255131}
   - component: {fileID: 1828255130}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallRun1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1326,7 +1374,7 @@ GameObject:
   - component: {fileID: 1965129928}
   - component: {fileID: 1965129927}
   - component: {fileID: 1965129926}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Climbing&Hang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
