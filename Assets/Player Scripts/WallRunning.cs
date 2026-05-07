@@ -22,6 +22,7 @@ public class WallRunning : MonoBehaviour
     
     private CharacterController controller;
     private PlayerMovement playerMovement;
+    private CameraAnimator cameraAnimator;
 
     private bool isWallRight;
     private bool isWallLeft;
@@ -38,6 +39,7 @@ public class WallRunning : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         playerMovement = GetComponent<PlayerMovement>();
+        cameraAnimator = GetComponentInChildren<CameraAnimator>();
     }
 
     void Update()
@@ -105,6 +107,11 @@ public class WallRunning : MonoBehaviour
         
         // Remember which wall we are currently on so we can mark it as used when we leave it
         lastWall = isWallRight ? rightWallHit.transform : leftWallHit.transform;
+
+        if (cameraAnimator != null)
+        {
+            cameraAnimator.TiltCamera(isWallRight ? 15f : -15f);
+        }
     }
 
     private void WallRunningMovement()
@@ -121,7 +128,9 @@ public class WallRunning : MonoBehaviour
         }
 
         // Apply movement forward along the wall
-        Vector3 moveVelocity = wallForward * wallRunSpeed;
+        // Inherit the player's momentum, but use wallRunSpeed as a minimum baseline
+        float speedToUse = Mathf.Max(wallRunSpeed, playerMovement.currentMoveSpeed);
+        Vector3 moveVelocity = wallForward * speedToUse;
         
         // Add a slight force pushing into the wall so we don't fall off
         moveVelocity += -wallNormal * wallStickForce;
@@ -160,6 +169,11 @@ public class WallRunning : MonoBehaviour
         {
             usedWalls.Add(lastWall);
             lastWall = null;
+        }
+
+        if (cameraAnimator != null)
+        {
+            cameraAnimator.TiltCamera(0f);
         }
     }
 
