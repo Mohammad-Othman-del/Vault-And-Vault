@@ -23,6 +23,7 @@ public class CameraAnimator : MonoBehaviour
     public float bobFrequency = 15f;
     public float bobAmplitudeY = 0.05f;
     public float bobAmplitudeX = 0.03f;
+    public float bobTiltAmplitude = 1.5f; // Procedural Z-roll during footsteps
     private float bobTimer = 0f;
     private float bobMultiplier = 0f;
 
@@ -133,7 +134,7 @@ public class CameraAnimator : MonoBehaviour
 
         // Apply Rotational Offset 
         float totalPitch = mouseLook.xRotation + currentPitchOffset + sprintPitch + currentSlidePitch + climbPitchX;
-        float totalTilt = currentTiltZ + currentSlideTilt + climbTiltZ + currentVaultRoll;
+        float totalTilt = currentTiltZ + currentSlideTilt + climbTiltZ + currentVaultRoll + GetBobOffsetZ();
         
         transform.localRotation = Quaternion.Euler(totalPitch, 0f, totalTilt);
     }
@@ -163,6 +164,12 @@ public class CameraAnimator : MonoBehaviour
     {
         float amplitudeScale = 0.5f + (Mathf.Clamp01(controller.velocity.magnitude / playerMovement.maxMoveSpeed) * 0.5f);
         return Mathf.Cos(bobTimer / 2f) * bobAmplitudeX * bobMultiplier * amplitudeScale;
+    }
+
+    private float GetBobOffsetZ()
+    {
+        float amplitudeScale = 0.5f + (Mathf.Clamp01(controller.velocity.magnitude / playerMovement.maxMoveSpeed) * 0.5f);
+        return Mathf.Cos(bobTimer / 2f) * bobTiltAmplitude * bobMultiplier * amplitudeScale;
     }
 
     private float smoothEffectIntensity = 0f;
