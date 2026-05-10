@@ -1938,6 +1938,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6815106568367193180, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
+      propertyPath: wallJumpUpForce
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6815106568367193180, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
+      propertyPath: turnAroundDuration
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7403016414418010750, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
       propertyPath: speedVolume
       value: 
