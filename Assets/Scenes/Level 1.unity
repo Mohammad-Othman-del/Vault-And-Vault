@@ -3379,23 +3379,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4821359882629264936, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
       propertyPath: jumpHeight
-      value: 3
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821359882629264936, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
+      propertyPath: maxMoveSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821359882629264936, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
+      propertyPath: groundMask.m_Bits
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6815106568367193180, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
+      propertyPath: maxClimbTime
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 6815106568367193180, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
       propertyPath: maxWallJumps
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6815106568367193180, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
       propertyPath: wallJumpUpForce
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6815106568367193180, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
       propertyPath: wallJumpBackForce
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9009580697018831701, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
       propertyPath: wallJumpSideForce
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9009580697018831701, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
       propertyPath: wallJumpForwardForce
@@ -4945,7 +4957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1560739922708671793, guid: f66ba0f2dfdcb9bd0b21b6069f25d80d, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4047440510866105199, guid: f66ba0f2dfdcb9bd0b21b6069f25d80d, type: 3}
       propertyPath: m_Mesh
@@ -4957,19 +4969,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419018822085169478, guid: f66ba0f2dfdcb9bd0b21b6069f25d80d, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4617449330142556800, guid: f66ba0f2dfdcb9bd0b21b6069f25d80d, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1925588820}
     - target: {fileID: 6145958499699754671, guid: f66ba0f2dfdcb9bd0b21b6069f25d80d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6145958499699754671, guid: f66ba0f2dfdcb9bd0b21b6069f25d80d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6145958499699754671, guid: f66ba0f2dfdcb9bd0b21b6069f25d80d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: 6145958499699754671, guid: f66ba0f2dfdcb9bd0b21b6069f25d80d, type: 3}
       propertyPath: m_LocalPosition.z

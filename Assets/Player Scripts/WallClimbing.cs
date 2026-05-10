@@ -15,14 +15,8 @@ public class WallClimbing : MonoBehaviour
     public float maxClimbTime = 2f;
     private float climbTimer;
 
-    [Header("Wall Sliding Settings")]
-    public float wallSlideSpeed = 2f;
-    public int maxWallJumps = 2;
-    private int jumpsRemaining;
-
     [Header("Wall Detection")]
     public LayerMask climbWallMask;
-    public LayerMask jumpWallMask;
     public float wallDetectionDistance = 0.7f;
     
     [Tooltip("Maximum angle (in degrees) from facing the wall perfectly head-on to allow climbing or sliding.")]
@@ -35,27 +29,24 @@ public class WallClimbing : MonoBehaviour
     public float vaultDuration = 0.4f;
 
     [Header("Wall Jump Settings")]
-    public float wallJumpBackForce = 6f; // Reduced from 8 to make the jump less explosive
-    public float wallJumpUpForce = 5f;   // Reduced from 6
-    public float turnAroundDuration = 0.6f; // Doubled from 0.3 to make the spin slower and more realistic
-    private CameraAnimator cameraAnimator;
+    public int maxWallJumps = 2;
+    private int jumpsRemaining;
+    public float wallJumpBackForce = 6f;
+    public float wallJumpUpForce = 5f;
 
     private bool isClimbing;
-    private bool isWallSliding;
     private bool isVaulting;
     private float vaultTimer;
 
     private RaycastHit frontClimbHit;
-    private RaycastHit frontJumpHit;
     private bool climbWallInFront;
-    private bool jumpWallInFront;
     private bool topClimbWallInFront;
+    private Vector3 climbNormal;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         playerMovement = GetComponent<PlayerMovement>();
-        cameraAnimator = GetComponentInChildren<CameraAnimator>();
         climbTimer = maxClimbTime;
         jumpsRemaining = maxWallJumps;
     }
@@ -68,15 +59,15 @@ public class WallClimbing : MonoBehaviour
 
     private void CheckForWall()
     {
+        // When climbing, we keep checking in the direction of the wall to stay attached even if looking away
+        Vector3 checkDir = isClimbing ? -climbNormal : transform.forward;
+
         // Raycast for Climb walls
-        climbWallInFront = Physics.Raycast(transform.position, transform.forward, out frontClimbHit, wallDetectionDistance, climbWallMask);
-        
-        // Raycast for Jump walls
-        jumpWallInFront = Physics.Raycast(transform.position, transform.forward, out frontJumpHit, wallDetectionDistance, jumpWallMask);
+        climbWallInFront = Physics.Raycast(transform.position, checkDir, out frontClimbHit, wallDetectionDistance, climbWallMask);
 
         // Raycast from higher up to check if the climb wall has ended (ledge detection)
         Vector3 topRayStart = transform.position + Vector3.up * topCheckHeight;
-        topClimbWallInFront = Physics.Raycast(topRayStart, transform.forward, wallDetectionDistance, climbWallMask);
+        topClimbWallInFront = Physics.Raycast(topRayStart, checkDir, wallDetectionDistance, climbWallMask);
     }
 
     private void StateMachine()
@@ -90,20 +81,31 @@ public class WallClimbing : MonoBehaviour
         }
 
         bool isMovingForward = Input.GetAxisRaw("Vertical") > 0;
+        bool shouldStayAttached = true;
         
-        float angleToClimb = climbWallInFront ? Vector3.Angle(transform.forward, -frontClimbHit.normal) : 0f;
-        float angleToJump = jumpWallInFront ? Vector3.Angle(transform.forward, -frontJumpHit.normal) : 0f;
-
-        bool isLookingAtClimbWall = angleToClimb < maxAngleFromWall;
-        bool isLookingAtJumpWall = angleToJump < maxAngleFromWall;
+        if (isClimbing)
+        {
+            // If the player turns around (more than 90 degrees away from the wall), they must detach and fall
+            float angleToClimb = Vector3.Angle(transform.forward, -climbNormal);
+            if (angleToClimb > 90f)
+            {
+                shouldStayAttached = false;
+            }
+        }
 
         // 1. Evaluate Climb Wall
-        if (climbWallInFront && isMovingForward && isLookingAtClimbWall && !playerMovement.isGrounded)
+        if (climbWallInFront && isMovingForward && !playerMovement.isGrounded && shouldStayAttached)
         {
             if (!isClimbing && climbTimer > 0)
             {
-                if (isWallSliding) StopWallSliding();
-                StartClimbing();
+                float angleToClimb = Vector3.Angle(transform.forward, -frontClimbHit.normal);
+                bool isLookingAtClimbWall = angleToClimb < maxAngleFromWall;
+
+                if (isLookingAtClimbWall)
+                {
+                    StartClimbing();
+                    climbNormal = frontClimbHit.normal;
+                }
             }
         }
         else
@@ -111,22 +113,6 @@ public class WallClimbing : MonoBehaviour
             if (isClimbing)
             {
                 StopClimbing();
-            }
-        }
-
-        // 2. Evaluate Jump Wall (Only if not already climbing)
-        if (jumpWallInFront && isMovingForward && isLookingAtJumpWall && !playerMovement.isGrounded && !isClimbing)
-        {
-            if (!isWallSliding)
-            {
-                StartWallSliding();
-            }
-        }
-        else
-        {
-            if (isWallSliding)
-            {
-                StopWallSliding();
             }
         }
 
@@ -138,18 +124,26 @@ public class WallClimbing : MonoBehaviour
             // If we are climbing and the top raycast doesn't hit anything, we reached the ledge
             if (!topClimbWallInFront)
             {
-                StartVault();
+                float angleToWall = Vector3.Angle(transform.forward, -climbNormal);
+                if (angleToWall < maxAngleFromWall)
+                {
+                    StartVault();
+                }
+                else
+                {
+                    // Fall if looking away at the ledge
+                    StopClimbing();
+                }
             }
         }
 
-        if (isWallSliding)
+        // Wall Jumping - Allowed if not grounded and there is a wall behind the player (e.g., after turning around)
+        if (!playerMovement.isGrounded && !isVaulting && Input.GetButtonDown("Jump") && jumpsRemaining > 0)
         {
-            WallSlidingMovement();
-
-            if (Input.GetButtonDown("Jump") && jumpsRemaining > 0)
+            // SphereCast backwards to find the wall we just turned away from
+            if (Physics.SphereCast(transform.position, 0.4f, -transform.forward, out RaycastHit backHit, wallDetectionDistance + 0.2f, climbWallMask))
             {
-                WallJump();
-                return;
+                WallJump(backHit.normal);
             }
         }
 
@@ -165,6 +159,8 @@ public class WallClimbing : MonoBehaviour
     {
         isClimbing = true;
         playerMovement.isClimbing = true;
+        // Kill existing velocity when attaching
+        playerMovement.SetVelocity(Vector3.zero);
     }
 
     private void ClimbingMovement()
@@ -195,28 +191,6 @@ public class WallClimbing : MonoBehaviour
         }
     }
 
-    private void StartWallSliding()
-    {
-        isWallSliding = true;
-        playerMovement.isWallSliding = true;
-        // Kill existing upward momentum when attaching
-        playerMovement.SetVelocity(Vector3.zero);
-    }
-
-    private void WallSlidingMovement()
-    {
-        // Slide down slowly
-        controller.Move(Vector3.down * wallSlideSpeed * Time.deltaTime);
-        // Prevent gravity buildup
-        playerMovement.SetVelocity(Vector3.zero);
-    }
-
-    private void StopWallSliding()
-    {
-        isWallSliding = false;
-        playerMovement.isWallSliding = false;
-    }
-
     private void StartVault()
     {
         isClimbing = false;
@@ -240,42 +214,13 @@ public class WallClimbing : MonoBehaviour
         }
     }
 
-    private void WallJump()
+    private void WallJump(Vector3 wallNormal)
     {
-        StopWallSliding();
+        if (isClimbing) StopClimbing();
         jumpsRemaining--;
         
         // Push the player up and away from the wall
-        Vector3 jumpVelocity = (transform.up * wallJumpUpForce) + (-transform.forward * wallJumpBackForce);
+        Vector3 jumpVelocity = (Vector3.up * wallJumpUpForce) + (wallNormal * wallJumpBackForce);
         playerMovement.SetVelocity(jumpVelocity);
-
-        if (cameraAnimator != null)
-        {
-            cameraAnimator.TriggerTurnaroundJump(turnAroundDuration);
-        }
-
-        // Spin the player 180 degrees physically so they face the new wall
-        StartCoroutine(TurnAroundRoutine());
-    }
-
-    private IEnumerator TurnAroundRoutine()
-    {
-        float elapsed = 0f;
-        float startY = transform.eulerAngles.y;
-        float targetY = startY + 180f;
-
-        while (elapsed < turnAroundDuration)
-        {
-            elapsed += Time.deltaTime;
-            float t = elapsed / turnAroundDuration;
-            
-            // Use SmoothStep for a snappy but smooth spin
-            float newY = Mathf.SmoothStep(startY, targetY, t);
-            transform.rotation = Quaternion.Euler(0f, newY, 0f);
-
-            yield return null;
-        }
-
-        transform.rotation = Quaternion.Euler(0f, targetY, 0f);
     }
 }
