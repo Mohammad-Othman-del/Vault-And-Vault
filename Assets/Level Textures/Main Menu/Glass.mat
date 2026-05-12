@@ -96,7 +96,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DistortStrength: 0.5
+    - _DistortStrength: 0.2
     - _DstBlend: 10
     - _DstBlendAlpha: 10
     - _EnvironmentReflections: 1
@@ -104,14 +104,14 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 1
-    - _NoiseScale: 0.01
+    - _NoiseScale: 0.5
     - _NormalStrength: 0.0001
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _ReflectionStrength: 0.5
+    - _ReflectionStrength: 0
     - _Smoothness: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -125,7 +125,7 @@ Material:
     - _BaseColor: {r: 0.6603774, g: 0.4298683, b: 0.4298683, a: 0}
     - _Color: {r: 0.6603774, g: 0.42986828, b: 0.42986828, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GlassColor: {r: 1, g: 1, b: 1, a: 0}
+    - _GlassColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
