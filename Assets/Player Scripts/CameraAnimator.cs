@@ -20,10 +20,11 @@ public class CameraAnimator : MonoBehaviour
     private MotionBlur motionBlur;
 
     [Header("Head Bob")]
-    public float bobFrequency = 15f;
-    public float bobAmplitudeY = 0.05f;
-    public float bobAmplitudeX = 0.03f;
-    public float bobTiltAmplitude = 1.5f; // Procedural Z-roll during footsteps
+    public float bobFrequency = 14f;
+    public float bobAmplitudeY = 0.08f;
+    public float bobAmplitudeX = 0.08f; // Increased for noticeable left/right head shift
+    public float bobTiltAmplitude = 2f; // Increased for left/right roll
+    public float bobYawAmplitude = 1.5f; // New: yaw left/right during steps
     private float bobTimer = 0f;
     private float bobMultiplier = 0f;
 
@@ -64,7 +65,9 @@ public class CameraAnimator : MonoBehaviour
     public float maxSprintPitch = 3f; // Positive looks down slightly (leaning forward)
 
     private bool isVaultingCam = false;
+    private bool isFlippingCam = false;
     private float currentVaultRoll = 0f;
+    private float currentSwingPitch = 0f;
 
     void Start()
     {
@@ -96,8 +99,8 @@ public class CameraAnimator : MonoBehaviour
         currentSlidePitch = Mathf.Lerp(currentSlidePitch, targetSlidePitch, Time.deltaTime * slideSmoothness);
         currentSlideTilt = Mathf.Lerp(currentSlideTilt, targetSlideTilt, Time.deltaTime * slideSmoothness);
 
-        // Smooth out pitch (X) recovery if we aren't currently overriding it with the Vault coroutine
-        if (!isVaultingCam)
+        // Smooth out pitch (X) recovery if we aren't currently overriding it with the Vault or Flip coroutine
+        if (!isVaultingCam && !isFlippingCam)
         {
             currentPitchOffset = Mathf.Lerp(currentPitchOffset, 0f, Time.deltaTime * shakeRecoverSpeed);
         }
@@ -133,15 +136,16 @@ public class CameraAnimator : MonoBehaviour
         float sprintPitch = Mathf.Lerp(0f, maxSprintPitch, speedRatio);
 
         // Apply Rotational Offset 
-        float totalPitch = mouseLook.xRotation + currentPitchOffset + sprintPitch + currentSlidePitch + climbPitchX;
+        float totalPitch = mouseLook.xRotation + currentPitchOffset + sprintPitch + currentSlidePitch + climbPitchX + currentSwingPitch;
         float totalTilt = currentTiltZ + currentSlideTilt + climbTiltZ + currentVaultRoll + GetBobOffsetZ();
+        float totalYaw = GetBobOffsetYaw();
         
-        transform.localRotation = Quaternion.Euler(totalPitch, 0f, totalTilt);
+        transform.localRotation = Quaternion.Euler(totalPitch, totalYaw, totalTilt);
     }
 
     private void UpdateHeadBob()
     {
-        bool isMovingOnGround = playerMovement.isGrounded && !playerMovement.isSliding && controller.velocity.magnitude > 0.1f;
+        bool isMovingOnGround = playerMovement.isGrounded && !playerMovement.isSliding && playerMovement.currentMoveSpeed > 0.1f && playerMovement.isPhysicallyMoving;
         
         // Smoothly ramp bob intensity up and down to prevent snapping when starting/stopping
         bobMultiplier = Mathf.Lerp(bobMultiplier, isMovingOnGround ? 1f : 0f, Time.deltaTime * 5f);
@@ -149,27 +153,34 @@ public class CameraAnimator : MonoBehaviour
         if (bobMultiplier > 0.01f)
         {
             // Speed of bob scales slightly with velocity
-            float speedRatio = Mathf.Clamp01(controller.velocity.magnitude / playerMovement.maxMoveSpeed);
+            float speedRatio = Mathf.Clamp01(playerMovement.currentMoveSpeed / playerMovement.maxMoveSpeed);
             bobTimer += Time.deltaTime * bobFrequency * Mathf.Max(0.5f, speedRatio);
         }
     }
 
     private float GetBobOffsetY()
     {
-        float amplitudeScale = 0.5f + (Mathf.Clamp01(controller.velocity.magnitude / playerMovement.maxMoveSpeed) * 0.5f);
+        float amplitudeScale = 0.5f + (Mathf.Clamp01(playerMovement.currentMoveSpeed / playerMovement.maxMoveSpeed) * 0.5f);
         return Mathf.Sin(bobTimer) * bobAmplitudeY * bobMultiplier * amplitudeScale;
     }
 
     private float GetBobOffsetX()
     {
-        float amplitudeScale = 0.5f + (Mathf.Clamp01(controller.velocity.magnitude / playerMovement.maxMoveSpeed) * 0.5f);
+        float amplitudeScale = 0.5f + (Mathf.Clamp01(playerMovement.currentMoveSpeed / playerMovement.maxMoveSpeed) * 0.5f);
         return Mathf.Cos(bobTimer / 2f) * bobAmplitudeX * bobMultiplier * amplitudeScale;
     }
 
     private float GetBobOffsetZ()
     {
-        float amplitudeScale = 0.5f + (Mathf.Clamp01(controller.velocity.magnitude / playerMovement.maxMoveSpeed) * 0.5f);
+        float amplitudeScale = 0.5f + (Mathf.Clamp01(playerMovement.currentMoveSpeed / playerMovement.maxMoveSpeed) * 0.5f);
         return Mathf.Cos(bobTimer / 2f) * bobTiltAmplitude * bobMultiplier * amplitudeScale;
+    }
+
+    private float GetBobOffsetYaw()
+    {
+        float amplitudeScale = 0.5f + (Mathf.Clamp01(playerMovement.currentMoveSpeed / playerMovement.maxMoveSpeed) * 0.5f);
+        // Sin to sync yaw slightly differently, making the walk feel more organic
+        return Mathf.Sin(bobTimer / 2f) * bobYawAmplitude * bobMultiplier * amplitudeScale;
     }
 
     private float smoothEffectIntensity = 0f;
@@ -273,5 +284,35 @@ public class CameraAnimator : MonoBehaviour
         }
 
         currentVaultRoll = 0f;
+    }
+
+    public void SetSwingPitch(float pitch)
+    {
+        currentSwingPitch = pitch;
+    }
+
+    public void TriggerSwingFlip(float duration)
+    {
+        StartCoroutine(SwingFlipRoutine(duration));
+    }
+
+    private IEnumerator SwingFlipRoutine(float duration)
+    {
+        isFlippingCam = true;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+            
+            // Backflip (pitch up = negative)
+            currentPitchOffset = Mathf.Lerp(0f, -360f, t);
+
+            yield return null;
+        }
+
+        currentPitchOffset = 0f;
+        isFlippingCam = false;
     }
 }

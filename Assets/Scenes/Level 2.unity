@@ -517,7 +517,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 364841377}
+  m_Mesh: {fileID: 16997913}
 --- !u!33 &17054200
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -1454,7 +1454,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 2
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -3543,7 +3543,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 778506398}
+  m_Mesh: {fileID: 991108574}
 --- !u!33 &409449716
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -3899,7 +3899,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 2008519968}
+  m_Mesh: {fileID: 9448995}
 --- !u!33 &460867781
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -13151,7 +13151,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 2
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89

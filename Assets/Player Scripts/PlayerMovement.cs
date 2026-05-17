@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
 
     [HideInInspector] public bool isSliding;
     [HideInInspector] public bool isVaulting;
+    [HideInInspector] public bool isSwinging;
+    [HideInInspector] public bool isPhysicallyMoving;
     
     private float normalHeight;
     private Vector3 normalCenter;
@@ -38,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     private CharacterController controller;
     private Vector3 velocity;
+    private Vector3 lastPosition;
 
     [HideInInspector] public bool isGrounded; // WallRun reads this
     [HideInInspector] public bool isClimbing; // Set by WallClimbing script
@@ -51,11 +54,12 @@ public class PlayerMovement : MonoBehaviour
 
         normalHeight = controller.height;
         normalCenter = controller.center;
+        lastPosition = transform.position;
     }
 
     void Update()
     {
-        if (isClimbing || isVaulting || isWallSliding) return; // Skip normal movement and gravity when interacting with walls/obstacles
+        if (isClimbing || isVaulting || isWallSliding || isSwinging) return; // Skip normal movement and gravity when interacting with walls/obstacles/bars
 
         bool wasGrounded = isGrounded;
         // Ground check using both the sphere cast and the CharacterController's built-in check
@@ -79,21 +83,39 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        // The player is considered moving if they are pressing movement keys, OR if they are currently wall running
-        bool isMoving = Mathf.Abs(x) > 0.01f || Mathf.Abs(z) > 0.01f || isWallRunning;
+        // Distance check to ensure they aren't just walking into a wall
+        Vector3 currentPos = transform.position;
+        currentPos.y = 0; // Ignore vertical movement (jumping/falling)
+        Vector3 prevPos = lastPosition;
+        prevPos.y = 0;
+        
+        float distanceMovedH = Vector3.Distance(currentPos, prevPos);
+        isPhysicallyMoving = distanceMovedH > 0.005f; // Must be actually moving horizontally
+        lastPosition = transform.position;
 
-        if (isMoving)
+        bool isTryingToMove = Mathf.Abs(x) > 0.01f || Mathf.Abs(z) > 0.01f;
+
+        // Only build sprint if grounded, pressing keys, and actually making distance
+        if (isTryingToMove && isGrounded && isPhysicallyMoving)
         {
             runTimer += Time.deltaTime;
             runTimer = Mathf.Clamp(runTimer, 0f, timeToMaxSpeed);
-            
+        }
+        else if (isGrounded && (!isTryingToMove || !isPhysicallyMoving))
+        {
+            // Reset sprint if stopped on the ground or stuck on a wall
+            runTimer = 0f;
+        }
+
+        // Apply speed calculation
+        if (isTryingToMove || isWallRunning || !isGrounded)
+        {
             float t = runTimer / timeToMaxSpeed;
-            // SmoothStep creates an organic S-curve (eases in, accelerates, then eases out) instead of a rigid linear line
+            // SmoothStep creates an organic S-curve (eases in, accelerates, then eases out)
             currentMoveSpeed = Mathf.SmoothStep(initialMoveSpeed, maxMoveSpeed, t);
         }
         else
         {
-            runTimer = 0f;
             currentMoveSpeed = 0f;
         }
 
