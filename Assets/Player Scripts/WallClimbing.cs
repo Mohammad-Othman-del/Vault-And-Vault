@@ -18,9 +18,9 @@ public class WallClimbing : MonoBehaviour
     [Header("Wall Detection")]
     public LayerMask climbWallMask;
     public float wallDetectionDistance = 0.7f;
-    
+
     [Tooltip("Maximum angle (in degrees) from facing the wall perfectly head-on to allow climbing or sliding.")]
-    public float maxAngleFromWall = 30f; 
+    public float maxAngleFromWall = 30f;
 
     [Header("Vaulting Settings")]
     [Tooltip("Height offset to check if we've reached the top of the wall.")]
@@ -34,9 +34,21 @@ public class WallClimbing : MonoBehaviour
     public float wallJumpBackForce = 6f;
     public float wallJumpUpForce = 5f;
 
+    [Header("Wall Turn Settings")]
+    [Tooltip("Key to rotate 165 degrees while clinging to a wall")]
+    public KeyCode wallTurnKey = KeyCode.Q;
+    [Tooltip("How long (seconds) the smooth rotation takes")]
+    public float wallTurnRotationDuration = 0.25f;
+    [Tooltip("How long (seconds) grip is maintained after turning")]
+    public float wallTurnGraceTime = 1.5f;
+
     private bool isClimbing;
     private bool isVaulting;
     private float vaultTimer;
+
+    private bool isInWallTurnWindow;
+    private float wallTurnTimer;
+    private Coroutine wallTurnCoroutine;
 
     private RaycastHit frontClimbHit;
     private bool climbWallInFront;
@@ -80,17 +92,30 @@ public class WallClimbing : MonoBehaviour
             return; // Skip climbing logic while vaulting
         }
 
+        // Q: initiate wall turn while climbing
+        if (isClimbing && !isInWallTurnWindow && Input.GetKeyDown(wallTurnKey))
+            StartWallTurn();
+
+        // Count down the grace window
+        if (isInWallTurnWindow)
+        {
+            wallTurnTimer -= Time.deltaTime;
+            if (wallTurnTimer <= 0f)
+            {
+                isInWallTurnWindow = false;
+                StopClimbing();
+            }
+        }
+
         bool isMovingForward = Input.GetAxisRaw("Vertical") > 0;
         bool shouldStayAttached = true;
-        
-        if (isClimbing)
+
+        if (isClimbing && !isInWallTurnWindow)
         {
             // If the player turns around (more than 90 degrees away from the wall), they must detach and fall
             float angleToClimb = Vector3.Angle(transform.forward, -climbNormal);
             if (angleToClimb > 90f)
-            {
                 shouldStayAttached = false;
-            }
         }
 
         // 1. Evaluate Climb Wall
@@ -165,6 +190,13 @@ public class WallClimbing : MonoBehaviour
 
     private void ClimbingMovement()
     {
+        // During the wall-turn grace window, just hang — no climbing, no falling
+        if (isInWallTurnWindow)
+        {
+            playerMovement.SetVelocity(Vector3.zero);
+            return;
+        }
+
         // Move the player directly upwards
         Vector3 climbVelocity = Vector3.up * climbSpeed;
         controller.Move(climbVelocity * Time.deltaTime);
@@ -172,10 +204,8 @@ public class WallClimbing : MonoBehaviour
         // Decrease the available climb time
         climbTimer -= Time.deltaTime;
         if (climbTimer < 0)
-        {
             StopClimbing();
-        }
-        
+
         // Clear gravity buildup in PlayerMovement so we don't shoot downwards right after climbing
         playerMovement.SetVelocity(Vector3.zero);
     }
@@ -216,11 +246,49 @@ public class WallClimbing : MonoBehaviour
 
     private void WallJump(Vector3 wallNormal)
     {
+        isInWallTurnWindow = false;
+        if (wallTurnCoroutine != null) { StopCoroutine(wallTurnCoroutine); wallTurnCoroutine = null; }
         if (isClimbing) StopClimbing();
         jumpsRemaining--;
-        
+
         // Push the player up and away from the wall
         Vector3 jumpVelocity = (Vector3.up * wallJumpUpForce) + (wallNormal * wallJumpBackForce);
         playerMovement.SetVelocity(jumpVelocity);
+    }
+
+    private void StartWallTurn()
+    {
+        isInWallTurnWindow = true;
+        wallTurnTimer = wallTurnGraceTime;
+
+        // Detect which side (left/right) has another climbable wall; default to left
+        float angle = 165f;
+        Vector3 rightDir = transform.right;
+        Vector3 leftDir = -transform.right;
+        if (Physics.Raycast(transform.position, rightDir, wallDetectionDistance * 3f, climbWallMask))
+            angle = 165f;
+        else if (Physics.Raycast(transform.position, leftDir, wallDetectionDistance * 3f, climbWallMask))
+            angle = -165f;
+
+        if (wallTurnCoroutine != null) StopCoroutine(wallTurnCoroutine);
+        wallTurnCoroutine = StartCoroutine(RotatePlayer(angle));
+    }
+
+    private IEnumerator RotatePlayer(float angle)
+    {
+        float elapsed = 0f;
+        Quaternion startRot = transform.rotation;
+        Quaternion endRot = startRot * Quaternion.Euler(0f, angle, 0f);
+
+        while (elapsed < wallTurnRotationDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.SmoothStep(0f, 1f, elapsed / wallTurnRotationDuration);
+            transform.rotation = Quaternion.Slerp(startRot, endRot, t);
+            yield return null;
+        }
+
+        transform.rotation = endRot;
+        wallTurnCoroutine = null;
     }
 }

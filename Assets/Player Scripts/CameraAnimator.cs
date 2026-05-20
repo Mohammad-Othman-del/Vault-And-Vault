@@ -45,7 +45,16 @@ public class CameraAnimator : MonoBehaviour
     public float climbBobAmplitudeY = 0.08f;
     public float climbTiltAmplitude = 2f;
     public float climbPitchAmplitude = 2f;
+    [Tooltip("Degrees the camera tilts upward while climbing (selling the 'looking up the wall' feel)")]
+    public float climbLookUpAngle = 10f;
+    [Tooltip("FOV narrows by this many degrees while climbing to sell effort/strain")]
+    public float climbFOVNarrow = 6f;
+    [Tooltip("How fast all climb effects blend in and out")]
+    public float climbSmoothness = 5f;
     private float climbTimer = 0f;
+    private float climbMultiplier = 0f;
+    private float currentClimbPitchLean = 0f;
+    private float currentClimbFOV = 0f;
 
     [Header("Slide Animation")]
     public float slideYOffset = -0.5f;
@@ -110,20 +119,29 @@ public class CameraAnimator : MonoBehaviour
         float climbTiltZ = 0f;
         float climbPitchX = 0f;
 
-        if (playerMovement.isClimbing)
+        // Smooth ramp so effects fade in/out instead of snapping
+        climbMultiplier = Mathf.Lerp(climbMultiplier, playerMovement.isClimbing ? 1f : 0f, Time.deltaTime * climbSmoothness);
+
+        if (climbMultiplier > 0.01f)
         {
             if (controller.velocity.magnitude > 0.1f)
-            {
                 climbTimer += Time.deltaTime * climbBobFrequency;
-            }
-            climbOffsetY = Mathf.Abs(Mathf.Sin(climbTimer)) * -climbBobAmplitudeY; // Pulls down every stroke
-            climbTiltZ = Mathf.Sin(climbTimer / 2f) * climbTiltAmplitude; // Rocks left to right
-            climbPitchX = Mathf.Abs(Mathf.Sin(climbTimer)) * climbPitchAmplitude; // Nods forward slightly
+
+            climbOffsetY = Mathf.Abs(Mathf.Sin(climbTimer)) * -climbBobAmplitudeY * climbMultiplier;
+            climbTiltZ   = Mathf.Sin(climbTimer / 2f) * climbTiltAmplitude * climbMultiplier;
+            climbPitchX  = Mathf.Abs(Mathf.Sin(climbTimer)) * climbPitchAmplitude * climbMultiplier;
         }
         else
         {
             climbTimer = 0f;
         }
+
+        // Upward look lean — camera tilts up to sell "looking up the wall"
+        float targetClimbLean = playerMovement.isClimbing ? -climbLookUpAngle : 0f;
+        currentClimbPitchLean = Mathf.Lerp(currentClimbPitchLean, targetClimbLean, Time.deltaTime * climbSmoothness);
+
+        // FOV narrows slightly to sell strain/effort
+        currentClimbFOV = Mathf.Lerp(currentClimbFOV, playerMovement.isClimbing ? climbFOVNarrow : 0f, Time.deltaTime * climbSmoothness);
 
         // Apply Position Offset
         Vector3 newPos = transform.localPosition;
@@ -136,7 +154,7 @@ public class CameraAnimator : MonoBehaviour
         float sprintPitch = Mathf.Lerp(0f, maxSprintPitch, speedRatio);
 
         // Apply Rotational Offset 
-        float totalPitch = mouseLook.xRotation + currentPitchOffset + sprintPitch + currentSlidePitch + climbPitchX + currentSwingPitch;
+        float totalPitch = mouseLook.xRotation + currentPitchOffset + sprintPitch + currentSlidePitch + climbPitchX + currentSwingPitch + currentClimbPitchLean;
         float totalTilt = currentTiltZ + currentSlideTilt + climbTiltZ + currentVaultRoll + GetBobOffsetZ();
         float totalYaw = GetBobOffsetYaw();
         
@@ -199,7 +217,7 @@ public class CameraAnimator : MonoBehaviour
         Camera cam = GetComponent<Camera>();
         if (cam != null)
         {
-            cam.fieldOfView = Mathf.Lerp(defaultFOV, maxSpeedFOV, smoothFovIntensity);
+            cam.fieldOfView = Mathf.Lerp(defaultFOV, maxSpeedFOV, smoothFovIntensity) - currentClimbFOV;
         }
 
         // Reduced intensities to keep the effect subtle and focused on the edges
