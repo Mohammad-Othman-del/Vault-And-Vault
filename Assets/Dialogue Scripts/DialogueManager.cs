@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text dialogueText;
     [Tooltip("Optional 'Press E to continue' prompt object")]
     public GameObject continuePrompt;
+    [Tooltip("Character portrait Image (the UI Image component on the portrait object)")]
+    public Image portraitImage;
+    [Tooltip("Root GameObject of the portrait — hidden when no portrait is set")]
+    public GameObject portraitObject;
 
     [Header("Settings")]
     [Tooltip("Characters per second for typewriter effect (0 = instant)")]
@@ -71,6 +76,12 @@ public class DialogueManager : MonoBehaviour
 
         if (nameText)
             nameText.text = line.speakerName;
+
+        // Portrait: show the sprite if one is assigned, otherwise hide the portrait object
+        if (portraitObject)
+            portraitObject.SetActive(line.portrait != null);
+        if (portraitImage && line.portrait != null)
+            portraitImage.sprite = line.portrait;
 
         if (_typewriterRoutine != null) StopCoroutine(_typewriterRoutine);
 
