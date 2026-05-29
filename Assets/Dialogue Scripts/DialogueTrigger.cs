@@ -6,6 +6,10 @@ public class DialogueTrigger : MonoBehaviour
     [Header("Dialogue")]
     public DialogueLine[] lines;
 
+    [Header("Chaining")]
+    [Tooltip("Dialogue that plays automatically when this one finishes. Leave empty for none.")]
+    public DialogueTrigger nextDialogue;
+
     [Header("Settings")]
     [Tooltip("If true, this trigger fires only once per scene load")]
     public bool triggerOnce = true;
@@ -25,7 +29,21 @@ public class DialogueTrigger : MonoBehaviour
         if (!other.CompareTag(playerTag)) return;
         if (DialogueManager.IsActive) return;
 
+        TriggerDialogue();
+    }
+
+    // Call this directly to start this dialogue from code or chaining
+    public void TriggerDialogue()
+    {
+        if (lines == null || lines.Length == 0) return;
+
         _triggered = true;
-        DialogueManager.Instance.StartDialogue(lines);
+        DialogueManager.Instance.StartDialogue(lines, OnThisDialogueEnd);
+    }
+
+    void OnThisDialogueEnd()
+    {
+        if (nextDialogue != null)
+            nextDialogue.TriggerDialogue();
     }
 }

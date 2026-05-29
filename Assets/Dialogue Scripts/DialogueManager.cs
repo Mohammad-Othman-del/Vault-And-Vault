@@ -28,6 +28,7 @@ public class DialogueManager : MonoBehaviour
     private int _currentIndex;
     private Coroutine _typewriterRoutine;
     private bool _lineFinished;
+    private System.Action _onEndCallback;
 
     void Awake()
     {
@@ -49,12 +50,13 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartDialogue(DialogueLine[] lines)
+    public void StartDialogue(DialogueLine[] lines, System.Action onEnd = null)
     {
         if (IsActive) return;
 
         _lines = lines;
         _currentIndex = 0;
+        _onEndCallback = onEnd;
         IsActive = true;
         dialoguePanel.SetActive(true);
         if (continuePrompt) continuePrompt.SetActive(false);
@@ -115,5 +117,9 @@ public class DialogueManager : MonoBehaviour
         IsActive = false;
         dialoguePanel.SetActive(false);
         if (continuePrompt) continuePrompt.SetActive(false);
+
+        System.Action callback = _onEndCallback;
+        _onEndCallback = null;
+        callback?.Invoke();
     }
 }
