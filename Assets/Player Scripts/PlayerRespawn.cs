@@ -4,25 +4,31 @@ public class PlayerRespawn : MonoBehaviour
 {
     [Header("Respawn Settings")]
     [Tooltip("The Y-axis height at which the player will die and respawn.")]
-    public float fallThreshold = -10f; 
-    
-    [Tooltip("Optional: Drag a Transform here to use as a custom spawn point. If left empty, the player will respawn exactly where they started the level.")]
+    public float fallThreshold = -10f;
+
+    [Tooltip("Optional: Starting spawn point override. Checkpoints will override this at runtime.")]
     public Transform customSpawnPoint;
 
     private Vector3 initialSpawnPosition;
+    private Transform activeCheckpoint;
     private CharacterController controller;
     private PlayerMovement playerMovement;
     private WallRunning wallRunning;
 
     void Start()
     {
-        // Cache references
         controller = GetComponent<CharacterController>();
         playerMovement = GetComponent<PlayerMovement>();
         wallRunning = GetComponent<WallRunning>();
 
-        // Record the exact position the player spawned in at the start of the game
         initialSpawnPosition = transform.position;
+        activeCheckpoint = customSpawnPoint;
+    }
+
+    public void SetCheckpoint(Transform checkpoint)
+    {
+        activeCheckpoint = checkpoint;
+        Debug.Log($"Checkpoint set: {checkpoint.gameObject.name}");
     }
 
     void Update()
@@ -43,11 +49,11 @@ public class PlayerRespawn : MonoBehaviour
             controller.enabled = false;
         }
 
-        // 2. Teleport the player
-        if (customSpawnPoint != null)
+        // 2. Teleport the player to the last activated checkpoint, or the starting position
+        if (activeCheckpoint != null)
         {
-            transform.position = customSpawnPoint.position;
-            transform.rotation = customSpawnPoint.rotation;
+            transform.position = activeCheckpoint.position;
+            transform.rotation = activeCheckpoint.rotation;
         }
         else
         {
