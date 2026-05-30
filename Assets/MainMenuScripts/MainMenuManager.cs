@@ -71,7 +71,7 @@ public class MainMenuManager : MonoBehaviour
         btn.colors = colors;
 
         string scene = levelName;
-        btn.onClick.AddListener(() => SceneManager.LoadScene(scene));
+        btn.onClick.AddListener(() => LoadWithScreen(scene));
 
         GameObject textGo = new GameObject("Label");
         textGo.transform.SetParent(btnGo.transform, false);
@@ -90,7 +90,13 @@ public class MainMenuManager : MonoBehaviour
         tmp.color = Color.white;
     }
 
-    public void PlayGame() => SceneManager.LoadScene("Level 1");
+    void LoadWithScreen(string sceneName)
+    {
+        LoadingData.TargetScene = sceneName;
+        SceneManager.LoadScene("Loading");
+    }
+
+    public void PlayGame() => LoadWithScreen("Level 1");
 
     public void ToggleLevelSelect()
     {
