@@ -155,7 +155,7 @@ MonoBehaviour:
   lineWidth: 0.025
   glowWidth: 0.18
   glowIntensity: 0.5
-  pulseSpeed: 1.5
+  pulseSpeed: 2.5
   pulseAmount: 1
 --- !u!4 &68936268
 Transform:
@@ -166,7 +166,7 @@ Transform:
   m_GameObject: {fileID: 68936266}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 495, y: 299, z: -0}
+  m_LocalPosition: {x: 500, y: 299, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -667,7 +667,7 @@ Transform:
   m_GameObject: {fileID: 136783381}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 299, z: -497}
+  m_LocalPosition: {x: 0, y: 299, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4135,10 +4135,6 @@ PrefabInstance:
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4821359882629264936, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
-      propertyPath: maxMoveSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4821359882629264936, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
       propertyPath: groundMask.m_Bits
       value: 72
       objectReference: {fileID: 0}
@@ -4147,20 +4143,8 @@ PrefabInstance:
       value: 0.83
       objectReference: {fileID: 0}
     - target: {fileID: 6815106568367193180, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
-      propertyPath: maxWallJumps
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6815106568367193180, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
-      propertyPath: wallJumpUpForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6815106568367193180, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
       propertyPath: wallJumpBackForce
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7403016414418010750, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
-      propertyPath: speedVolume
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7403016414418010750, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
       propertyPath: bobFrequency
@@ -4190,46 +4174,11 @@ PrefabInstance:
       propertyPath: wallJumpSideForce
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 9009580697018831701, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
-      propertyPath: wallJumpForwardForce
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2984605495266867284, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 885849513}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
---- !u!1 &885849512 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2984605495266867284, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
-  m_PrefabInstance: {fileID: 885849511}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &885849513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 885849512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971e9c04e79b54745bc86b0d70c21a2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BarSwinging
-  barMask:
-    serializedVersion: 2
-    m_Bits: 512
-  detectionRadius: 0.6
-  detectionDistance: 1.5
-  maxSwingAngle: 45
-  swingSpeed: 4
-  dampingRate: 5
-  armLength: 1.5
-  jumpLaunchForce: 12
-  jumpUpForce: 6
 --- !u!1 &887669548
 GameObject:
   m_ObjectHideFlags: 0
@@ -4582,7 +4531,7 @@ Transform:
   m_GameObject: {fileID: 925061715}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 299, z: 497}
+  m_LocalPosition: {x: 0, y: 299, z: 500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5461,7 +5410,7 @@ Transform:
   m_GameObject: {fileID: 1256421439}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -495, y: 299, z: -0}
+  m_LocalPosition: {x: -500, y: 299, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7603,7 +7552,7 @@ Transform:
   m_GameObject: {fileID: 1813063757}
   serializedVersion: 2
   m_LocalRotation: {x: -1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 792, z: 0}
+  m_LocalPosition: {x: 0, y: 800, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

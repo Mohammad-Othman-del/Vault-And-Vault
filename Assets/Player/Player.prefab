@@ -17,9 +17,10 @@ GameObject:
   - component: {fileID: 6815106568367193180}
   - component: {fileID: 9009580697018831701}
   - component: {fileID: 4870349676702414536}
+  - component: {fileID: 2716529839251927784}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,7 +137,7 @@ MonoBehaviour:
   initialMoveSpeed: 5
   maxMoveSpeed: 10
   timeToMaxSpeed: 3
-  jumpHeight: 4.2
+  jumpHeight: 1.5
   gravity: -19.81
   wallRunGravityMultiplier: 0.1
   cameraAnimator: {fileID: 0}
@@ -148,12 +149,14 @@ MonoBehaviour:
     m_Bits: 0
   isSliding: 0
   isVaulting: 0
+  isSwinging: 0
+  isPhysicallyMoving: 0
   currentMoveSpeed: 0
   groundCheck: {fileID: 6103825164413209151}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
-    m_Bits: 328
+    m_Bits: 72
   isGrounded: 0
   isClimbing: 0
   isWallSliding: 0
@@ -196,23 +199,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallClimbing
   climbSpeed: 4
-  maxClimbTime: 2
-  wallSlideSpeed: 2
-  maxWallJumps: 3
+  maxClimbTime: 0.83
   climbWallMask:
     serializedVersion: 2
     m_Bits: 64
-  jumpWallMask:
-    serializedVersion: 2
-    m_Bits: 256
   wallDetectionDistance: 0.7
   maxAngleFromWall: 30
   topCheckHeight: 1
   vaultSpeed: 6
   vaultDuration: 0.4
-  wallJumpBackForce: 8
+  maxWallJumps: 3
+  wallJumpBackForce: 6
   wallJumpUpForce: 10
-  turnAroundDuration: 0.5
+  wallTurnKey: 113
+  wallTurnRotationDuration: 0.25
+  wallTurnGraceTime: 1.5
 --- !u!114 &9009580697018831701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,8 +228,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WallRunning
   wallRunSpeed: 8
   wallStickForce: 6
-  wallJumpUpForce: 5
-  wallJumpSideForce: 12
+  wallJumpUpForce: 6
+  wallJumpSideForce: 7
   wallJumpForwardForce: 4
   exitWallCooldown: 0.2
   wallMask:
@@ -249,6 +250,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
   fallThreshold: -1
   customSpawnPoint: {fileID: 0}
+--- !u!114 &2716529839251927784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2984605495266867284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 971e9c04e79b54745bc86b0d70c21a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BarSwinging
+  barMask:
+    serializedVersion: 2
+    m_Bits: 512
+  detectionRadius: 0.6
+  detectionDistance: 1.5
+  maxSwingAngle: 45
+  swingSpeed: 4
+  dampingRate: 5
+  armLength: 1.5
+  jumpLaunchForce: 12
+  jumpUpForce: 6
 --- !u!1 &3736023236377874272
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,10 +507,11 @@ MonoBehaviour:
   controller: {fileID: 4198697074469076923}
   speedVolume: {fileID: 0}
   maxSpeedFOV: 80
-  bobFrequency: 300
-  bobAmplitudeY: 0.5
-  bobAmplitudeX: 0.3
-  bobTiltAmplitude: 1.5
+  bobFrequency: 20
+  bobAmplitudeY: 0.1
+  bobAmplitudeX: 0.2
+  bobTiltAmplitude: 0.2
+  bobYawAmplitude: 0.4
   wallRunTiltAmount: 15
   tiltSmoothness: 6
   jumpDipAmount: 5
@@ -496,6 +521,9 @@ MonoBehaviour:
   climbBobAmplitudeY: 0.08
   climbTiltAmplitude: 2
   climbPitchAmplitude: 2
+  climbLookUpAngle: 10
+  climbFOVNarrow: 6
+  climbSmoothness: 5
   slideYOffset: -0.5
   slidePitch: -6
   slideTilt: -3
