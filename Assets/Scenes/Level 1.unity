@@ -376,6 +376,129 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1001 &136767823
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: nextDialogue
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].text
+      value: Great, your'e a fast learner.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].text
+      value: Your speed will increase as long as your'e moving, so try not to stop
+        too much.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].text
+      value: In this phase of training there will be no guards chasing you, so take
+        your time to understand the movement.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: ca40abaa9eb9a5c4b98b9eef0f12976e, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 062524f3043c1a143a55e35598012420, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 062524f3043c1a143a55e35598012420, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -59.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787163212349026628, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_Name
+      value: Dialouge_1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
 --- !u!43 &163474547
 Mesh:
   m_ObjectHideFlags: 0
@@ -608,6 +731,275 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &286883136
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: nextDialogue
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].text
+      value: I PICKED THE RIGHT CANDIDATE FOR THIS JOB!.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].text
+      value: Stop yelling in my ears, I would like to keep them.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].text
+      value: Right.....sorry.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].text
+      value: Ok you need to chain multiple wall climbs to be able to get to the top.
+        you can combine up to three wall climbs at a time.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[4].text
+      value: Press Q while climbing a wall then press SPACEBAR to move to the next
+        wall.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[5].text
+      value: If you think it's too dificult you can always climb the ladder.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[4].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[5].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].speakerName
+      value: Sven
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[4].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[5].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 93.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787163212349026628, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_Name
+      value: Dialouge_8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+--- !u!1001 &439758163
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: nextDialogue
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].text
+      value: You might actually pull this hiest off.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].text
+      value: Bruh.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].text
+      value: Im joking relax.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].text
+      value: To slide press CTRL while holding W, if your'e not fast enough you won't
+        be able to slide.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: ca40abaa9eb9a5c4b98b9eef0f12976e, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: ca40abaa9eb9a5c4b98b9eef0f12976e, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: ca40abaa9eb9a5c4b98b9eef0f12976e, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].speakerName
+      value: Sven
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 39.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787163212349026628, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_Name
+      value: Dialouge_6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
 --- !u!1 &443377941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,6 +1712,129 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1001 &521868348
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: nextDialogue
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].text
+      value: Ok kid, easy part is over.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].text
+      value: Let's see if you can pull off a double wall run.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].text
+      value: Just like before, run towards the wall press SPACEBAR and keep holding
+        W. Don't forget jumping to the other wall.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].text
+      value: To slide press CTRL while holding W, if your'e not fast enough you won't
+        be able to slide.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: ca40abaa9eb9a5c4b98b9eef0f12976e, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: ca40abaa9eb9a5c4b98b9eef0f12976e, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: ca40abaa9eb9a5c4b98b9eef0f12976e, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 58.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787163212349026628, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_Name
+      value: Dialouge_7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
 --- !u!1 &575683630
 GameObject:
   m_ObjectHideFlags: 0
@@ -1676,6 +2191,154 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1001 &661832689
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: nextDialogue
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].text
+      value: Great job.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].text
+      value: 'You can swing on bars to cover longer distances, just time your jump
+        so you don''t fall. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].text
+      value: Right.....sorry.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].text
+      value: Ok you need to chain multiple wall climbs to be able to get to the top.
+        you can combine up to three wall climbs at a time.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[4].text
+      value: Press Q while climbing a wall then press SPACEBAR to move to the next
+        wall.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[5].text
+      value: If you think it's too dificult you can always climb the ladder.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[4].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[5].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[4].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[5].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10.8837
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 100.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787163212349026628, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_Name
+      value: Dialouge_10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
 --- !u!43 &719927742
 Mesh:
   m_ObjectHideFlags: 0
@@ -1884,7 +2547,7 @@ Transform:
   m_GameObject: {fileID: 752835229}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29, y: 15, z: 95}
+  m_LocalPosition: {x: -29, y: 14.5, z: 95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2907,7 +3570,6 @@ MonoBehaviour:
   armLength: 1.5
   jumpLaunchForce: 12
   jumpUpForce: 6
-  flipDuration: 0.8
 --- !u!1 &887669548
 GameObject:
   m_ObjectHideFlags: 0
@@ -4573,6 +5235,117 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1001 &1481968181
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: nextDialogue
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].text
+      value: Nice moves.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].text
+      value: 'To preform a wall climb you need to hold W after pressing SPACEBAR.
+        make sure that your''e close to the wall. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].text
+      value: 'I won''t simulate the museum guards chasing you in this level, so you
+        can get the hang of the movement better. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: ca40abaa9eb9a5c4b98b9eef0f12976e, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 062524f3043c1a143a55e35598012420, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787163212349026628, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_Name
+      value: Dialouge_4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
 --- !u!43 &1499903717
 Mesh:
   m_ObjectHideFlags: 0
@@ -4955,15 +5728,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527377011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 28}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 179179358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -800, y: 0}
+  m_AnchoredPosition: {x: -894, y: -39}
   m_SizeDelta: {x: 1080, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1527377013
@@ -4986,7 +5759,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 062524f3043c1a143a55e35598012420, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 835b8ebae8302204d95b4712cd08049c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -5182,6 +5955,118 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1001 &1678197507
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: nextDialogue
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].text
+      value: Good.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].text
+      value: 'To preform a wall run you need to run towards the wall with an angle
+        and hold W after pressing SPACEBAR. Don''t forget to press SPACEBAR to jump
+        off a wall and get a boost. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].text
+      value: 'I won''t simulate the museum guards chasing you in this level, so you
+        can get the hang of the movement better. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: ca40abaa9eb9a5c4b98b9eef0f12976e, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 062524f3043c1a143a55e35598012420, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787163212349026628, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_Name
+      value: Dialouge_5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
 --- !u!1 &1716824923
 GameObject:
   m_ObjectHideFlags: 0
@@ -5716,6 +6601,118 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1001 &1819501133
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: nextDialogue
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].text
+      value: Look at you Lebron! did you ever consider joining the NBA with a vertical
+        like that.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].text
+      value: ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].text
+      value: Anyway, if an obstacle is short enough and your'e moving fast, you can
+        vault over it just by running towards it, this movement will increase your
+        speed.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 835b8ebae8302204d95b4712cd08049c, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: ca40abaa9eb9a5c4b98b9eef0f12976e, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: ca40abaa9eb9a5c4b98b9eef0f12976e, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].speakerName
+      value: Sven
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787163212349026628, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_Name
+      value: Dialouge_3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
 --- !u!1 &1912601097
 GameObject:
   m_ObjectHideFlags: 0
@@ -6072,6 +7069,154 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1001 &1923349623
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: nextDialogue
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].text
+      value: Ok, now for the last combo.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].text
+      value: Some walls are too high to climb you can preform a wallrun then jump
+        to climb walls you usually won't be able to climb.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].text
+      value: Right.....sorry.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].text
+      value: Ok you need to chain multiple wall climbs to be able to get to the top.
+        you can combine up to three wall climbs at a time.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[4].text
+      value: Press Q while climbing a wall then press SPACEBAR to move to the next
+        wall.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[5].text
+      value: If you think it's too dificult you can always climb the ladder.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[4].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[5].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 24d3057e27f0b1b4ea97b3aba1eb18e6, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[4].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[5].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10.8837
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 100.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787163212349026628, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_Name
+      value: Dialouge_9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
 --- !u!43 &1925588820
 Mesh:
   m_ObjectHideFlags: 0
@@ -6606,6 +7751,116 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1001 &1952086468
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: nextDialogue
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].text
+      value: To jump press SPACEBAR.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].text
+      value: Anyway... the more consistent your movement is the faster you will run
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].text
+      value: 'I won''t simulate the museum guards chasing you in this level, so you
+        can get the hang of the movement better. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: ca40abaa9eb9a5c4b98b9eef0f12976e, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: ca40abaa9eb9a5c4b98b9eef0f12976e, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 062524f3043c1a143a55e35598012420, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[0].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[1].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -32.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787163212349026628, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: m_Name
+      value: Dialouge_2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
 --- !u!43 &1976737918
 Mesh:
   m_ObjectHideFlags: 0
@@ -6798,7 +8053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
       propertyPath: lines.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
       propertyPath: lines.Array.data[0].text
@@ -6806,7 +8061,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
       propertyPath: lines.Array.data[1].text
-      value: WHAT THE?!....
+      value: Yes i can hear you professor.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].text
+      value: Great, this simulation should be a great way to get you ready for the
+        hiest.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].text
+      value: Try moving around using the W,A,S,D keys.
       objectReference: {fileID: 0}
     - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
       propertyPath: lines.Array.data[0].portrait
@@ -6817,12 +8081,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 062524f3043c1a143a55e35598012420, type: 3}
     - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: ca40abaa9eb9a5c4b98b9eef0f12976e, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: ca40abaa9eb9a5c4b98b9eef0f12976e, type: 3}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
       propertyPath: lines.Array.data[0].speakerName
-      value: Mastermind
+      value: The Professor
       objectReference: {fileID: 0}
     - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
       propertyPath: lines.Array.data[1].speakerName
-      value: Mastermind
+      value: Sven
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[2].speakerName
+      value: The Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640901573787966622, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
+      propertyPath: lines.Array.data[3].speakerName
+      value: The Professor
       objectReference: {fileID: 0}
     - target: {fileID: 3741286515532218686, guid: 7dd4573c638e8c495848395f8c285284, type: 3}
       propertyPath: m_LocalScale.x
@@ -7003,9 +8283,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 631901856068670432, guid: efad7176988612ff38fca0998b448c5d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73d70e1843174ece48e9157765227800, type: 2}
     - target: {fileID: 1588331263922770904, guid: efad7176988612ff38fca0998b448c5d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 2355903035956511689, guid: efad7176988612ff38fca0998b448c5d, type: 3}
       propertyPath: m_Size.y
@@ -7067,6 +8351,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1976737918}
+    - target: {fileID: 5970426856278421386, guid: efad7176988612ff38fca0998b448c5d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73d70e1843174ece48e9157765227800, type: 2}
     - target: {fileID: 6497890276340765821, guid: efad7176988612ff38fca0998b448c5d, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -7268,6 +8556,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1925588820}
+    - target: {fileID: 4843545529696499510, guid: f66ba0f2dfdcb9bd0b21b6069f25d80d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73d70e1843174ece48e9157765227800, type: 2}
     - target: {fileID: 6145958499699754671, guid: f66ba0f2dfdcb9bd0b21b6069f25d80d, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.25
@@ -7316,6 +8608,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1301916779}
+    - target: {fileID: 6834507705152239450, guid: f66ba0f2dfdcb9bd0b21b6069f25d80d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73d70e1843174ece48e9157765227800, type: 2}
     - target: {fileID: 7098594423848225999, guid: f66ba0f2dfdcb9bd0b21b6069f25d80d, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -7481,33 +8777,69 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1303290864883173434, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303290864883173434, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -77
+      objectReference: {fileID: 0}
+    - target: {fileID: 2171028015531457254, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -429
+      objectReference: {fileID: 0}
+    - target: {fileID: 2171028015531457254, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 3618051027845747623, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 481
+      objectReference: {fileID: 0}
+    - target: {fileID: 3618051027845747623, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -181
+      objectReference: {fileID: 0}
     - target: {fileID: 3892981652638466371, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3892981652638466371, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: m_fontSize
-      value: 60
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892981652638466371, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_margin.x
+      value: 34.74878
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892981652638466371, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_margin.z
+      value: 100.07556
       objectReference: {fileID: 0}
     - target: {fileID: 3892981652638466371, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: m_fontStyle
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3892981652638466371, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.08235294
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3892981652638466371, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.4392157
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3892981652638466371, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.9098039
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3892981652638466371, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: m_fontSizeBase
-      value: 60
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892981652638466371, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5254011171888907688, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: portraitImage
@@ -7530,28 +8862,64 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5921502203196943046, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_margin.z
+      value: -78.84766
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921502203196943046, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: m_fontStyle
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6492617829036095383, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6492617829036095383, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 46a7fb80ba395f975a20abb0a2cd3cdb, type: 3}
+    - target: {fileID: 6492617829036095383, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6492617829036095383, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6492617829036095383, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6492617829036095383, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7126494329233323397, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_text
+      value: E
       objectReference: {fileID: 0}
     - target: {fileID: 7126494329233323397, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: m_fontSize
       value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 7126494329233323397, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_margin.x
+      value: 363.19666
+      objectReference: {fileID: 0}
+    - target: {fileID: 7126494329233323397, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: m_fontStyle
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7126494329233323397, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.08235294
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7126494329233323397, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.4392157
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7126494329233323397, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.9098039
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7126494329233323397, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: m_fontSizeBase
@@ -7559,15 +8927,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7126494329233323397, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4279595240
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 7126494329233323397, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7197252067974434727, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -451
+      objectReference: {fileID: 0}
+    - target: {fileID: 7197252067974434727, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -657.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7197252067974434727, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7197252067974434727, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7197252067974434727, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 218
+      objectReference: {fileID: 0}
+    - target: {fileID: 7197252067974434727, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -311
+      objectReference: {fileID: 0}
     - target: {fileID: 9165002724846353684, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.71253
+      value: 549
       objectReference: {fileID: 0}
     - target: {fileID: 9165002724846353684, guid: 64a63c0f0dd0549369b1f99a64d52c23, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7635,7 +9027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054977435278388408, guid: fd73322b9126fe4948f794fc7c1aeb7a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 48
+      value: 56.94
       objectReference: {fileID: 0}
     - target: {fileID: 2054977435278388408, guid: fd73322b9126fe4948f794fc7c1aeb7a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7677,6 +9069,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1173219966}
+    - target: {fileID: 4483773732960110576, guid: fd73322b9126fe4948f794fc7c1aeb7a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 75d8f3c6614651bafa6381940ef0f4b8, type: 2}
     - target: {fileID: 7756975934689785408, guid: fd73322b9126fe4948f794fc7c1aeb7a, type: 3}
       propertyPath: m_Name
       value: Slidable
@@ -7746,6 +9142,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5373255589266824257, guid: b96217a64cc3d938a989c8a1a0e58103, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 75d8f3c6614651bafa6381940ef0f4b8, type: 2}
     - target: {fileID: 6224504185649449112, guid: b96217a64cc3d938a989c8a1a0e58103, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -7775,6 +9175,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 115230169}
+    - target: {fileID: 231714803440666169, guid: 48a83fc50b94193b8a11fc24472136b4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c163e1efdd953126cbf23276a6476d78, type: 2}
     - target: {fileID: 672775614889168562, guid: 48a83fc50b94193b8a11fc24472136b4, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -7787,6 +9191,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1605174690903621070, guid: 48a83fc50b94193b8a11fc24472136b4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c163e1efdd953126cbf23276a6476d78, type: 2}
     - target: {fileID: 2074170926667324744, guid: 48a83fc50b94193b8a11fc24472136b4, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -7803,6 +9211,10 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 2387
       objectReference: {fileID: 0}
+    - target: {fileID: 3890561723656315986, guid: 48a83fc50b94193b8a11fc24472136b4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c163e1efdd953126cbf23276a6476d78, type: 2}
     - target: {fileID: 5089979886421527897, guid: 48a83fc50b94193b8a11fc24472136b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
@@ -7855,6 +9267,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1499903717}
+    - target: {fileID: 5996612326661468218, guid: 48a83fc50b94193b8a11fc24472136b4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c163e1efdd953126cbf23276a6476d78, type: 2}
     - target: {fileID: 6892857552857971642, guid: 48a83fc50b94193b8a11fc24472136b4, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -7918,3 +9334,13 @@ SceneRoots:
   - {fileID: 954950402881698610}
   - {fileID: 105345186}
   - {fileID: 1988536242}
+  - {fileID: 136767823}
+  - {fileID: 1952086468}
+  - {fileID: 1819501133}
+  - {fileID: 1481968181}
+  - {fileID: 1678197507}
+  - {fileID: 439758163}
+  - {fileID: 521868348}
+  - {fileID: 286883136}
+  - {fileID: 1923349623}
+  - {fileID: 661832689}

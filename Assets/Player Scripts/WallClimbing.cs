@@ -262,13 +262,13 @@ public class WallClimbing : MonoBehaviour
         wallTurnTimer = wallTurnGraceTime;
 
         // Detect which side (left/right) has another climbable wall; default to left
-        float angle = 165f;
+        float angle = 170f;
         Vector3 rightDir = transform.right;
         Vector3 leftDir = -transform.right;
         if (Physics.Raycast(transform.position, rightDir, wallDetectionDistance * 3f, climbWallMask))
-            angle = 165f;
+            angle = 170f;
         else if (Physics.Raycast(transform.position, leftDir, wallDetectionDistance * 3f, climbWallMask))
-            angle = -165f;
+            angle = -170f;
 
         if (wallTurnCoroutine != null) StopCoroutine(wallTurnCoroutine);
         wallTurnCoroutine = StartCoroutine(RotatePlayer(angle));

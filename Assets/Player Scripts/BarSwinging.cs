@@ -18,7 +18,7 @@ public class BarSwinging : MonoBehaviour
     [Header("Jump Off")]
     public float jumpLaunchForce = 12f;
     public float jumpUpForce = 6f;
-    public float flipDuration = 0.5f;
+    // public float flipDuration = 0.5f;
 
     private PlayerMovement playerMovement;
     private CameraAnimator cameraAnimator;
@@ -137,10 +137,10 @@ public class BarSwinging : MonoBehaviour
         // If currentAngle < 0, the pendulum is in the forward half of the swing
         if (currentAngle < 0f)
         {
-            if (cameraAnimator != null)
-            {
-                cameraAnimator.TriggerSwingFlip(flipDuration);
-            }
+            // if (cameraAnimator != null)
+            // {
+            //     cameraAnimator.TriggerSwingFlip(flipDuration);
+            // }
 
             // Launch forward and up
             Vector3 launchVelocity = transform.forward * jumpLaunchForce + Vector3.up * jumpUpForce;
