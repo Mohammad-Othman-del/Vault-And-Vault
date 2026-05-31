@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask obstacleMask;
 
     [HideInInspector] public bool isSliding;
+    [HideInInspector] public bool isCrouching;
     [HideInInspector] public bool isVaulting;
     [HideInInspector] public bool isSwinging;
     [HideInInspector] public bool isPhysicallyMoving;
@@ -125,27 +126,55 @@ public class PlayerMovement : MonoBehaviour
             Vector3 move = transform.right * x + transform.forward * z;
             if (move.magnitude > 1f) move.Normalize();
 
-            // Slide Logic
             bool hittingMaxSpeed = currentMoveSpeed >= maxMoveSpeed * 0.9f;
+            bool holdingCrouch = Input.GetKey(KeyCode.LeftControl);
 
-            if (Input.GetKey(KeyCode.LeftControl) && hittingMaxSpeed && isGrounded && !isWallRunning)
+            if (holdingCrouch && isGrounded && !isWallRunning)
             {
-                if (!isSliding)
+                if (hittingMaxSpeed)
                 {
-                    isSliding = true;
-                    controller.height = normalHeight / 2f;
-                    controller.center = normalCenter + Vector3.down * (normalHeight / 4f);
-                    if (cameraAnimator != null) cameraAnimator.SetSlide(true);
+                    // Fast enough — slide
+                    if (isCrouching)
+                    {
+                        // Transition: crouch → slide (height already lowered, just fix camera)
+                        isCrouching = false;
+                        if (cameraAnimator != null) cameraAnimator.SetSlide(true);
+                    }
+                    if (!isSliding)
+                    {
+                        isSliding = true;
+                        controller.height = normalHeight / 2f;
+                        controller.center = normalCenter + Vector3.down * (normalHeight / 4f);
+                        if (cameraAnimator != null) cameraAnimator.SetSlide(true);
+                    }
+                    move = transform.forward; // Lock to forward while sliding
                 }
-                
-                // Sliding preserves momentum but restricts steering
-                move = transform.forward; // Lock movement forward while sliding
+                else
+                {
+                    // Not fast enough — crouch instead
+                    if (isSliding)
+                    {
+                        // Transition: slide → crouch (height stays lowered, clear slide camera effects)
+                        isSliding = false;
+                        if (cameraAnimator != null) cameraAnimator.SetCrouch(true);
+                    }
+                    if (!isCrouching)
+                    {
+                        isCrouching = true;
+                        controller.height = normalHeight / 2f;
+                        controller.center = normalCenter + Vector3.down * (normalHeight / 4f);
+                        if (cameraAnimator != null) cameraAnimator.SetCrouch(true);
+                    }
+                    // Free steering while crouched (no move lock)
+                }
             }
             else
             {
-                if (isSliding)
+                // Released Ctrl — exit slide or crouch
+                if (isSliding || isCrouching)
                 {
                     isSliding = false;
+                    isCrouching = false;
                     controller.height = normalHeight;
                     controller.center = normalCenter;
                     if (cameraAnimator != null) cameraAnimator.SetSlide(false);
@@ -153,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             // Vault Logic
-            if (hittingMaxSpeed && isGrounded && !isWallRunning && !isSliding)
+            if (hittingMaxSpeed && isGrounded && !isWallRunning && !isSliding && !isCrouching)
             {
                 if (CheckVault()) return;
             }

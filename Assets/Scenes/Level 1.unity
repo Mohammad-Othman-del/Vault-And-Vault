@@ -4143,6 +4143,10 @@ PrefabInstance:
       value: 0.83
       objectReference: {fileID: 0}
     - target: {fileID: 6815106568367193180, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
+      propertyPath: wallJumpUpForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6815106568367193180, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
       propertyPath: wallJumpBackForce
       value: 6
       objectReference: {fileID: 0}

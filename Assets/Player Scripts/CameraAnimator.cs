@@ -255,6 +255,14 @@ public class CameraAnimator : MonoBehaviour
         targetTiltZ = zAngle;
     }
 
+    public void SetCrouch(bool crouching)
+    {
+        // Lower the camera like a slide, but no pitch or tilt — just a neutral duck
+        targetSlideY     = crouching ? slideYOffset : 0f;
+        targetSlidePitch = 0f;
+        targetSlideTilt  = 0f;
+    }
+
     private IEnumerator VaultDipRoutine(float duration)
     {
         isVaultingCam = true;
