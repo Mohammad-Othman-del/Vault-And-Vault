@@ -22,6 +22,14 @@ public class PlayerMovement : MonoBehaviour
     public float vaultForwardDistance = 2.5f;
     public LayerMask obstacleMask;
 
+    [Header("Slide Deceleration")]
+    [Tooltip("How fast the player loses speed while sliding (higher = faster slowdown)")]
+    public float slideDecelerationRate = 1.5f;
+    [Tooltip("Speed below this threshold converts the slide into a crouch")]
+    public float minSlideSpeed = 9f;
+    [Tooltip("Maximum movement speed while crouching")]
+    public float crouchMoveSpeed = 2f;
+
     [HideInInspector] public bool isSliding;
     [HideInInspector] public bool isCrouching;
     [HideInInspector] public bool isVaulting;
@@ -42,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 velocity;
     private Vector3 lastPosition;
+    private bool _jumpedFromSlide = false;
 
     [HideInInspector] public bool isGrounded; // WallRun reads this
     [HideInInspector] public bool isClimbing; // Set by WallClimbing script
@@ -96,16 +105,19 @@ public class PlayerMovement : MonoBehaviour
 
         bool isTryingToMove = Mathf.Abs(x) > 0.01f || Mathf.Abs(z) > 0.01f;
 
-        // Only build sprint if grounded, pressing keys, and actually making distance
-        if (isTryingToMove && isGrounded && isPhysicallyMoving)
+        // Only build sprint if grounded, pressing keys, actually making distance, and not crouching
+        if (!isCrouching)
         {
-            runTimer += Time.deltaTime;
-            runTimer = Mathf.Clamp(runTimer, 0f, timeToMaxSpeed);
-        }
-        else if (isGrounded && (!isTryingToMove || !isPhysicallyMoving))
-        {
-            // Reset sprint if stopped on the ground or stuck on a wall
-            runTimer = 0f;
+            if (isTryingToMove && isGrounded && isPhysicallyMoving)
+            {
+                runTimer += Time.deltaTime;
+                runTimer = Mathf.Clamp(runTimer, 0f, timeToMaxSpeed);
+            }
+            else if (isGrounded && (!isTryingToMove || !isPhysicallyMoving))
+            {
+                // Reset sprint if stopped on the ground or stuck on a wall
+                runTimer = 0f;
+            }
         }
 
         // Apply speed calculation
@@ -131,41 +143,68 @@ public class PlayerMovement : MonoBehaviour
 
             if (holdingCrouch && isGrounded && !isWallRunning)
             {
-                if (hittingMaxSpeed)
+                // First grounded frame after jumping out of a slide — skip re-entry entirely
+                if (_jumpedFromSlide)
                 {
-                    // Fast enough — slide
-                    if (isCrouching)
-                    {
-                        // Transition: crouch → slide (height already lowered, just fix camera)
-                        isCrouching = false;
-                        if (cameraAnimator != null) cameraAnimator.SetSlide(true);
-                    }
-                    if (!isSliding)
-                    {
-                        isSliding = true;
-                        controller.height = normalHeight / 2f;
-                        controller.center = normalCenter + Vector3.down * (normalHeight / 4f);
-                        if (cameraAnimator != null) cameraAnimator.SetSlide(true);
-                    }
-                    move = transform.forward; // Lock to forward while sliding
+                    _jumpedFromSlide = false;
                 }
                 else
                 {
-                    // Not fast enough — crouch instead
+                    // Drain speed while sliding
                     if (isSliding)
                     {
-                        // Transition: slide → crouch (height stays lowered, clear slide camera effects)
-                        isSliding = false;
-                        if (cameraAnimator != null) cameraAnimator.SetCrouch(true);
+                        runTimer -= slideDecelerationRate * Time.deltaTime;
+                        runTimer = Mathf.Max(runTimer, 0f);
+                        float tSlide = runTimer / timeToMaxSpeed;
+                        currentMoveSpeed = Mathf.SmoothStep(initialMoveSpeed, maxMoveSpeed, tSlide);
                     }
-                    if (!isCrouching)
+
+                    // Need full speed to START a slide; only need minSlideSpeed to STAY in one
+                    bool canSlide = isSliding ? currentMoveSpeed >= minSlideSpeed : hittingMaxSpeed;
+                    bool slideEndedNaturally = isSliding && !canSlide;
+
+                    if (canSlide)
                     {
+                        // Fast enough — slide
+                        if (isCrouching)
+                        {
+                            isCrouching = false;
+                            if (cameraAnimator != null) cameraAnimator.SetSlide(true);
+                        }
+                        if (!isSliding)
+                        {
+                            isSliding = true;
+                            controller.height = normalHeight / 2f;
+                            controller.center = normalCenter + Vector3.down * (normalHeight / 4f);
+                            if (cameraAnimator != null) cameraAnimator.SetSlide(true);
+                        }
+                        move = transform.forward; // Lock to forward while sliding
+                    }
+                    else if (slideEndedNaturally)
+                    {
+                        // Slide ran out of speed — transition directly to crouch at speed 2
+                        isSliding = false;
                         isCrouching = true;
-                        controller.height = normalHeight / 2f;
-                        controller.center = normalCenter + Vector3.down * (normalHeight / 4f);
+                        // Height is already lowered from the slide, no need to change it
                         if (cameraAnimator != null) cameraAnimator.SetCrouch(true);
                     }
-                    // Free steering while crouched (no move lock)
+                    else
+                    {
+                        // Not fast enough from the start — crouch
+                        if (isSliding)
+                        {
+                            isSliding = false;
+                            if (cameraAnimator != null) cameraAnimator.SetCrouch(true);
+                        }
+                        if (!isCrouching)
+                        {
+                            isCrouching = true;
+                            controller.height = normalHeight / 2f;
+                            controller.center = normalCenter + Vector3.down * (normalHeight / 4f);
+                            if (cameraAnimator != null) cameraAnimator.SetCrouch(true);
+                        }
+                        // Free steering while crouched — speed stays frozen, no increase
+                    }
                 }
             }
             else
@@ -187,11 +226,16 @@ public class PlayerMovement : MonoBehaviour
                 if (CheckVault()) return;
             }
 
+            if (isCrouching)
+                currentMoveSpeed = Mathf.Min(currentMoveSpeed, crouchMoveSpeed);
+
             controller.Move(move * currentMoveSpeed * Time.deltaTime);
 
             // Jump
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
+                if (isSliding || isCrouching)
+                    _jumpedFromSlide = true;
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
                 if (cameraAnimator != null) cameraAnimator.TriggerJump();
             }
