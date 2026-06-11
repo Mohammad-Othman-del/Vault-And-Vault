@@ -4,7 +4,7 @@ public class PlayerRespawn : MonoBehaviour
 {
     [Header("Respawn Settings")]
     [Tooltip("The Y-axis height at which the player will die and respawn.")]
-    public float fallThreshold = -10f;
+    public float fallThreshold = -100f;
 
     [Tooltip("Optional: Starting spawn point override. Checkpoints will override this at runtime.")]
     public Transform customSpawnPoint;
