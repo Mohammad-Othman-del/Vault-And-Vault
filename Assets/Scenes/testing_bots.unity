@@ -1552,10 +1552,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3382158502b5acc49a9c32422e4603a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BotController
-  player: {fileID: 1737033818}
-  catchDistance: 0.7
-  chaseSpeed: 3
-  agent: {fileID: 0}
 --- !u!195 &1039283041
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1665,7 +1661,7 @@ Transform:
   m_GameObject: {fileID: 1039283039}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: -13}
+  m_LocalPosition: {x: 0, y: 2, z: -14.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1683,35 +1679,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585fe2f5cbe0dae4aa19d035993d26b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AdvancedBotController
-  player: {fileID: 1737033818}
-  catchDistance: 1.5
-  startDelay: 3
-  currentState: 0
-  canMove: 0
-  reactionDelayMin: 0.05
-  reactionDelayMax: 0.2
-  chaseSpeed: 13
-  normalGravity: -20
-  obstacleMask:
-    m_Bits: 0
-  vaultDuration: 0.4
-  vaultHeight: 1.2
-  vaultForwardDistance: 2.5
-  climbWallMask:
-    m_Bits: 64
-  climbSpeed: 5
-  topCheckHeight: 1
-  wallDetectionDistance: 1
-  wallRunSpeed: 14
-  wallRunGravity: -4
-  gapDetectionDistance: 3
-  agent: {fileID: 0}
-  controller: {fileID: 0}
-  velocity: {x: 0, y: 0, z: 0}
-  isExecutingMove: 0
-  climbNormal: {x: 0, y: 0, z: 0}
-  wallRunNormal: {x: 0, y: 0, z: 0}
-  wallRunSide: 0
 --- !u!143 &1039283047
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3480,7 +3447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4286711723573897374, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.25
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 4286711723573897374, guid: 469f0db1815ddee0bb287c679cf5ef03, type: 3}
       propertyPath: m_LocalRotation.w
