@@ -105,3 +105,16 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# IDE, OS & Scratch files
+.vscode/
+.vsconfig
+*.slnx
+desktop.ini
+Desktop.ini
+README_template.md
+instructions.md
+instructions.md.meta
+UnityLearnLayout.wlt
+audio_debug.txt
+audio_debug.txt.meta

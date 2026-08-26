@@ -97,6 +97,7 @@ public class CameraAnimator : MonoBehaviour
 
     void LateUpdate()
     {
+        if (RubberBandBot.isCinematicPlaying) return;
         if (playerMovement == null || mouseLook == null || controller == null) return;
 
         UpdateHeadBob();

@@ -7,7 +7,6 @@ public class Checkpoint : MonoBehaviour
 
     [SerializeField] private Color activatedColor = Color.green;
 
-    private bool activated = false;
     private Color originalColor;
 
     void Start()
@@ -18,16 +17,7 @@ public class Checkpoint : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (activated) return;
-        if (!other.CompareTag("Player")) return;
-
-        PlayerRespawn respawn = other.GetComponent<PlayerRespawn>();
-        if (respawn == null) return;
-
-        respawn.SetCheckpoint(transform);
-        activated = true;
-
-        if (checkpointRenderer != null)
-            checkpointRenderer.material.color = activatedColor;
+        // Checkpoints removed: restart starts from the beginning of the level
+        return;
     }
 }

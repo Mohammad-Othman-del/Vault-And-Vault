@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
     private Vector3 lastPosition;
     private bool _jumpedFromSlide = false;
+    private PlayerAudio playerAudio;
 
     [HideInInspector] public bool isGrounded; // WallRun reads this
     [HideInInspector] public bool isClimbing; // Set by WallClimbing script
@@ -62,13 +63,91 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         if (cameraAnimator == null) cameraAnimator = GetComponentInChildren<CameraAnimator>();
 
+        playerAudio = GetComponent<PlayerAudio>();
+        if (playerAudio == null)
+        {
+            playerAudio = gameObject.AddComponent<PlayerAudio>();
+        }
+
         normalHeight = controller.height;
         normalCenter = controller.center;
         lastPosition = transform.position;
+
+        // Disable player mesh shadows completely across all levels!
+        DisablePlayerShadows();
     }
+
+    public void DisablePlayerShadows()
+    {
+        Renderer[] renderers = GetComponentsInChildren<Renderer>(true);
+        foreach (Renderer r in renderers)
+        {
+            if (r != null)
+            {
+                r.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+                r.receiveShadows = false;
+            }
+        }
+    }
+
+    private Vector3 safeCutscenePos;
+    private bool isCutsceneProtected = false;
+    private Coroutine unprotectCoroutine;
 
     void Update()
     {
+        if (LevelCompleteManager.isLevelCompleteActive || GameOverManager.isGameOverActive)
+        {
+            velocity = Vector3.zero;
+            return;
+        }
+
+        if (RubberBandBot.isCinematicPlaying || isCutsceneProtected)
+        {
+            velocity = Vector3.zero;
+            
+            // Fall protection: If player Y drops below safe position, restore instantly!
+            if (safeCutscenePos != Vector3.zero && transform.position.y < safeCutscenePos.y - 0.4f)
+            {
+                if (controller != null) controller.enabled = false;
+                transform.position = safeCutscenePos;
+                if (controller != null) controller.enabled = true;
+            }
+
+            if (!RubberBandBot.isCinematicPlaying && isCutsceneProtected && unprotectCoroutine == null)
+            {
+                unprotectCoroutine = StartCoroutine(UnprotectCutsceneDelay());
+            }
+
+            return;
+        }
+
+        // Ghost Mode Flight Controls
+        if (PauseMenuManager.ghostMode)
+        {
+            controller.detectCollisions = false;
+
+            float ghostX = Input.GetAxis("Horizontal");
+            float ghostZ = Input.GetAxis("Vertical");
+            float ghostY = 0f;
+            if (Input.GetKey(KeyCode.Space)) ghostY = 1f;
+            else if (Input.GetKey(KeyCode.LeftControl)) ghostY = -1f;
+
+            Vector3 flyDirection = transform.right * ghostX + transform.forward * ghostZ + Vector3.up * ghostY;
+            if (flyDirection.magnitude > 1f) flyDirection.Normalize();
+
+            float flySpeed = 15f * PauseMenuManager.speedMultiplier;
+            controller.Move(flyDirection * flySpeed * Time.deltaTime);
+
+            velocity = Vector3.zero;
+            isGrounded = false;
+            return;
+        }
+        else
+        {
+            controller.detectCollisions = true;
+        }
+
         if (isClimbing || isVaulting || isWallSliding || isSwinging) return; // Skip normal movement and gravity when interacting with walls/obstacles/bars
 
         bool wasGrounded = isGrounded;
@@ -79,6 +158,7 @@ public class PlayerMovement : MonoBehaviour
         if (!wasGrounded && isGrounded && velocity.y < -2f)
         {
             if (cameraAnimator != null) cameraAnimator.TriggerLand();
+            if (playerAudio != null) playerAudio.PlayLand();
         }
 
         if (isGrounded && velocity.y < 0)
@@ -229,20 +309,22 @@ public class PlayerMovement : MonoBehaviour
             if (isCrouching)
                 currentMoveSpeed = Mathf.Min(currentMoveSpeed, crouchMoveSpeed);
 
-            controller.Move(move * currentMoveSpeed * Time.deltaTime);
+            controller.Move(move * currentMoveSpeed * PauseMenuManager.speedMultiplier * Time.deltaTime);
 
             // Jump
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
                 if (isSliding || isCrouching)
                     _jumpedFromSlide = true;
-                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                velocity.y = Mathf.Sqrt(jumpHeight * PauseMenuManager.jumpMultiplier * -2f * gravity);
                 if (cameraAnimator != null) cameraAnimator.TriggerJump();
+                if (playerAudio != null) playerAudio.PlayJump();
             }
         }
 
         // Apply gravity
         float currentGravity = isWallRunning ? gravity * wallRunGravityMultiplier : gravity;
+        if (PauseMenuManager.moonGravity) currentGravity *= 0.25f; // Moon gravity scales gravity down to 25%
         velocity.y += currentGravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
@@ -278,6 +360,7 @@ public class PlayerMovement : MonoBehaviour
         isVaulting = true;
         
         if (cameraAnimator != null) cameraAnimator.TriggerVault(vaultDuration);
+        if (playerAudio != null) playerAudio.PlayVault();
 
         Vector3 startPos = transform.position;
         Vector3 targetPos = transform.position + transform.forward * vaultForwardDistance;
@@ -300,5 +383,79 @@ public class PlayerMovement : MonoBehaviour
 
         controller.enabled = true;
         isVaulting = false;
+    }
+
+    public void FreezeForCinematic()
+    {
+        StopAllCoroutines();
+        velocity = Vector3.zero;
+        currentMoveSpeed = 0f;
+        runTimer = 0f;
+
+        isSliding = false;
+        isCrouching = false;
+        isVaulting = false;
+        isSwinging = false;
+        isClimbing = false;
+        isWallSliding = false;
+        isWallRunning = false;
+        isPhysicallyMoving = false;
+
+        // Reset scale if sliding or crouching
+        transform.localScale = Vector3.one;
+
+        // Lock in safe position prior to cutscene
+        safeCutscenePos = transform.position;
+        isCutsceneProtected = true;
+        if (unprotectCoroutine != null) StopCoroutine(unprotectCoroutine);
+        unprotectCoroutine = null;
+
+        // Stop slide/run audio loops
+        if (playerAudio != null)
+        {
+            playerAudio.StopSlide();
+        }
+    }
+
+    private System.Collections.IEnumerator UnprotectCutsceneDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
+        isCutsceneProtected = false;
+        unprotectCoroutine = null;
+    }
+
+    public void ResetParkourStates()
+    {
+        StopAllCoroutines();
+        velocity = Vector3.zero;
+        currentMoveSpeed = 0f;
+        runTimer = 0f;
+
+        isSliding = false;
+        isCrouching = false;
+        isVaulting = false;
+        isSwinging = false;
+        isClimbing = false;
+        isWallSliding = false;
+        isWallRunning = false;
+        isPhysicallyMoving = false;
+
+        if (controller != null)
+        {
+            controller.height = normalHeight;
+            controller.center = normalCenter;
+        }
+
+        if (cameraAnimator != null)
+        {
+            cameraAnimator.SetSlide(false);
+            cameraAnimator.SetCrouch(false);
+            cameraAnimator.SetSwingPitch(0f);
+        }
+
+        if (playerAudio != null)
+        {
+            playerAudio.StopSlide();
+        }
     }
 }

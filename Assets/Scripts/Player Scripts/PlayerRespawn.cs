@@ -10,6 +10,7 @@ public class PlayerRespawn : MonoBehaviour
     public Transform customSpawnPoint;
 
     private Vector3 initialSpawnPosition;
+    private Quaternion initialSpawnRotation;
     private Transform activeCheckpoint;
     private CharacterController controller;
     private PlayerMovement playerMovement;
@@ -22,26 +23,72 @@ public class PlayerRespawn : MonoBehaviour
         wallRunning = GetComponent<WallRunning>();
 
         initialSpawnPosition = transform.position;
+        initialSpawnRotation = transform.rotation;
         activeCheckpoint = customSpawnPoint;
     }
 
     public void SetCheckpoint(Transform checkpoint)
     {
-        activeCheckpoint = checkpoint;
-        Debug.Log($"Checkpoint set: {checkpoint.gameObject.name}");
+        if (checkpoint != null)
+        {
+            activeCheckpoint = checkpoint;
+            Debug.Log($"Active Checkpoint set to GameObject: {checkpoint.gameObject.name}");
+        }
     }
 
     void Update()
     {
         // Check if player has fallen below the map
-        if (transform.position.y < fallThreshold)
+        if (transform.position.y < fallThreshold && Time.timeScale > 0f)
         {
-            Respawn();
+            GameOverManager gom = FindAnyObjectByType<GameOverManager>();
+            if (gom == null)
+            {
+                GameObject gomGo = new GameObject("GameOverManager");
+                gom = gomGo.AddComponent<GameOverManager>();
+            }
+            gom.ShowGameOver("FELL OFF THE MAP");
         }
     }
 
     public void Respawn()
     {
+        // Stop the chase music and emergency alarm upon respawning/death
+        if (GameAudioManager.Instance != null)
+        {
+            GameAudioManager.Instance.StopChaseBGM();
+            GameAudioManager.Instance.StopEmergencyAlarm();
+        }
+
+        // Respawn the data fragment collectible item if collected
+        CollectibleItem.ResetCollectible();
+
+        // Reset camera look pitch & prevent delta jump spikes
+        MouseLook mouseLook = GetComponentInChildren<MouseLook>();
+        if (mouseLook != null)
+        {
+            mouseLook.ResetCameraLook();
+        }
+
+        // Reset the chasing bot position and breadcrumbs
+        RubberBandBot bot = FindAnyObjectByType<RubberBandBot>();
+        if (bot != null)
+        {
+            bot.ResetBotToSpawn();
+        }
+
+        // Reset player parkour, sliding, crouching, and swinging states!
+        if (playerMovement != null)
+        {
+            playerMovement.ResetParkourStates();
+        }
+
+        BarSwinging barSwinging = GetComponent<BarSwinging>();
+        if (barSwinging != null)
+        {
+            barSwinging.ResetBarSwing();
+        }
+
         // 1. Disable CharacterController. In Unity, CharacterControllers override transform.position.
         // You MUST disable them before attempting to teleport the player.
         if (controller != null)
@@ -49,16 +96,9 @@ public class PlayerRespawn : MonoBehaviour
             controller.enabled = false;
         }
 
-        // 2. Teleport the player to the last activated checkpoint, or the starting position
-        if (activeCheckpoint != null)
-        {
-            transform.position = activeCheckpoint.position;
-            transform.rotation = activeCheckpoint.rotation;
-        }
-        else
-        {
-            transform.position = initialSpawnPosition;
-        }
+        // 2. Teleport the player to the initial level spawn point
+        transform.position = initialSpawnPosition;
+        transform.rotation = initialSpawnRotation;
 
         // 3. Re-enable CharacterController so physics can take over again
         if (controller != null)

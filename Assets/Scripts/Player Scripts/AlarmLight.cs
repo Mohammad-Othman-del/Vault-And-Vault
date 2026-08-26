@@ -53,8 +53,7 @@ public class AlarmLight : MonoBehaviour
         housing.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
         Destroy(housing.GetComponent<Collider>());
 
-        Material housingMat = new Material(Shader.Find("Standard"));
-        housingMat.color = new Color(0.12f, 0.12f, 0.12f);
+        Material housingMat = CreateSafeMaterial(new Color(0.12f, 0.12f, 0.12f), 0.5f, 0.5f, Color.clear);
         housing.GetComponent<Renderer>().material = housingMat;
 
         // Red lens cap on the front of the housing
@@ -65,18 +64,40 @@ public class AlarmLight : MonoBehaviour
         lens.transform.localScale    = new Vector3(0.7f, 0.4f, 0.7f);
         Destroy(lens.GetComponent<Collider>());
 
-        Material lensMat = new Material(Shader.Find("Standard"));
-        lensMat.color = new Color(1f, 0.05f, 0.05f);
-        lensMat.SetFloat("_Metallic", 0f);
-        lensMat.SetFloat("_Glossiness", 0.9f);
-        // Emission so the lens glows
-        lensMat.EnableKeyword("_EMISSION");
-        lensMat.SetColor("_EmissionColor", new Color(1.5f, 0f, 0f));
+        Material lensMat = CreateSafeMaterial(new Color(1f, 0.05f, 0.05f), 0f, 0.9f, new Color(1.5f, 0f, 0f));
         lens.GetComponent<Renderer>().material = lensMat;
+    }
+
+    private Material CreateSafeMaterial(Color color, float metallic, float smoothness, Color emissionColor)
+    {
+        Shader shader = Shader.Find("Universal Render Pipeline/Lit");
+        if (shader == null) shader = Shader.Find("Universal Render Pipeline/Unlit");
+        if (shader == null) shader = Shader.Find("Standard");
+        if (shader == null) shader = Shader.Find("Unlit/Color");
+        if (shader == null) shader = Shader.Find("Sprites/Default");
+
+        Material mat = (shader != null) ? new Material(shader) : new Material(Shader.Find("Sprites/Default"));
+
+        if (mat.HasProperty("_Color")) mat.SetColor("_Color", color);
+        if (mat.HasProperty("_BaseColor")) mat.SetColor("_BaseColor", color);
+        if (mat.HasProperty("_Metallic")) mat.SetFloat("_Metallic", metallic);
+        if (mat.HasProperty("_Smoothness")) mat.SetFloat("_Smoothness", smoothness);
+
+        if (emissionColor != Color.clear)
+        {
+            mat.EnableKeyword("_EMISSION");
+            if (mat.HasProperty("_EmissionColor")) mat.SetColor("_EmissionColor", emissionColor);
+            if (mat.HasProperty("_Emission")) mat.SetColor("_Emission", emissionColor);
+        }
+
+        return mat;
     }
 
     void Update()
     {
-        rotatingHead.Rotate(0f, spinSpeed * Time.deltaTime, 0f, Space.Self);
+        if (rotatingHead != null)
+        {
+            rotatingHead.Rotate(0f, spinSpeed * Time.deltaTime, 0f, Space.Self);
+        }
     }
 }

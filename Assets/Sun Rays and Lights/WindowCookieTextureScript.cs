@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 
@@ -61,3 +62,4 @@ public class CreateWindowCookie : MonoBehaviour
         Debug.Log("Octagonal window cookie created!");
     }
 }
+#endif

@@ -1,7 +1,14 @@
 fileFormatVersion: 2
-guid: 33fcb55ac7ec37c4d91ac070e80910c8
+guid: 61568529af33e7e4d92d54f98e432557
 DefaultImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 361516
+  packageName: 'FREE Demo: Low Poly Sci-Fi Hangar / Cosmic Retro'
+  packageVersion: 1.1.0
+  assetPath: Assets/room/Cosmic_Retro_Hangar_Demo/DemoScene/DEMO_Retro_Hangar.unity
+  uploadId: 901962

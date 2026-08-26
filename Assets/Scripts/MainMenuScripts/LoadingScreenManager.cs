@@ -106,6 +106,27 @@ public class LoadingScreenManager : MonoBehaviour
     IEnumerator LoadAfterDelay()
     {
         yield return new WaitForSeconds(LoadingDuration);
-        SceneManager.LoadScene(LoadingData.TargetScene);
+        
+        string target = LoadingData.TargetScene;
+        if (string.IsNullOrEmpty(target)) target = "Main Menu";
+
+        if (Application.CanStreamedLevelBeLoaded(target))
+        {
+            SceneManager.LoadScene(target);
+        }
+        else
+        {
+            Debug.LogWarning($"LoadingScreenManager: Scene '{target}' is not added to Build Settings. Running fallback.");
+            if (target.Equals("Ending", System.StringComparison.OrdinalIgnoreCase))
+            {
+                // Instantiate EndingSceneManager on the current canvas to play the Thank You For Playing sequence!
+                GameObject endingGo = new GameObject("EndingSceneManager");
+                endingGo.AddComponent<EndingSceneManager>();
+            }
+            else
+            {
+                SceneManager.LoadScene("Main Menu");
+            }
+        }
     }
 }

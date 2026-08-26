@@ -23,6 +23,7 @@ public class BarSwinging : MonoBehaviour
     private PlayerMovement playerMovement;
     private CameraAnimator cameraAnimator;
     private CharacterController controller;
+    private PlayerAudio playerAudio;
     
     private Transform currentBar;
     private Vector3 hingePoint;
@@ -38,6 +39,7 @@ public class BarSwinging : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         cameraAnimator = GetComponentInChildren<CameraAnimator>();
         controller = GetComponent<CharacterController>();
+        playerAudio = GetComponent<PlayerAudio>();
     }
 
     void Update()
@@ -90,6 +92,9 @@ public class BarSwinging : MonoBehaviour
         
         playerMovement.SetVelocity(Vector3.zero);
         controller.enabled = false; 
+
+        if (playerAudio == null) playerAudio = GetComponent<PlayerAudio>();
+        if (playerAudio != null) playerAudio.PlayBarGrab();
     }
 
     private void HandleSwinging()
@@ -158,6 +163,21 @@ public class BarSwinging : MonoBehaviour
     {
         playerMovement.isSwinging = false;
         controller.enabled = true;
+        cooldownTimer = 0.5f;
+
+        if (cameraAnimator != null)
+        {
+            cameraAnimator.SetSwingPitch(0f);
+        }
+    }
+
+    public void ResetBarSwing()
+    {
+        if (playerMovement != null) playerMovement.isSwinging = false;
+        if (controller != null) controller.enabled = true;
+        currentBar = null;
+        swingTimer = 0f;
+        currentAngle = 0f;
         cooldownTimer = 0.5f;
 
         if (cameraAnimator != null)

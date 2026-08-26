@@ -8,6 +8,8 @@ public struct DialogueLine
     public string speakerName;
     [TextArea(2, 5)]
     public string text;
-    [Tooltip("Character portrait sprite shown for this line (leave null to hide portrait)")]
+    [Tooltip("First portrait sprite (alternates with portrait2 while dialogue is active)")]
     public Sprite portrait;
+    [Tooltip("Second portrait sprite to alternate with (leave null to use only portrait)")]
+    public Sprite portrait2;
 }

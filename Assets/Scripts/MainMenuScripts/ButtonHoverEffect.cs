@@ -21,18 +21,58 @@ public class ButtonHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerEx
         originalScale = transform.localScale;
         label = GetComponentInChildren<TextMeshProUGUI>();
         if (label != null) originalTextColor = label.color;
+
+        Button btn = GetComponent<Button>();
+        if (btn != null)
+        {
+            btn.onClick.AddListener(PlayClickSound);
+        }
+    }
+
+    void OnEnable()
+    {
+        ResetHoverState();
+    }
+
+    void OnDisable()
+    {
+        ResetHoverState();
+    }
+
+    public void ResetHoverState()
+    {
+        if (currentAnim != null)
+        {
+            StopCoroutine(currentAnim);
+            currentAnim = null;
+        }
+
+        if (originalScale != Vector3.zero)
+        {
+            transform.localScale = originalScale;
+        }
+
+        if (label != null && originalTextColor != default)
+        {
+            label.color = originalTextColor;
+        }
+    }
+
+    private void PlayClickSound()
+    {
+        GameAudioManager.Instance.PlayClickSound();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        GameAudioManager.Instance.PlayHoverSound();
         if (currentAnim != null) StopCoroutine(currentAnim);
         currentAnim = StartCoroutine(Animate(originalScale * scaleMultiplier, hoverTextColor));
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (currentAnim != null) StopCoroutine(currentAnim);
-        currentAnim = StartCoroutine(Animate(originalScale, originalTextColor));
+        ResetHoverState();
     }
 
     IEnumerator Animate(Vector3 targetScale, Color targetColor)
